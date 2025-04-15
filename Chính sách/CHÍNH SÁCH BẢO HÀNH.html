@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chính Sách Bảo Hành </title>
+  <style>
+    :root {
+      --primary-color: #f9afaf;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background-color: #fff;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      color: #333;
+    }
+
+    .policy-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .policy-item {
+      border: 2px solid var(--primary-color);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+
+    .policy-header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .policy-content {
+      display: none;
+      padding: 1rem;
+      background-color: #fff0f0;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .rotate {
+      transform: rotate(90deg);
+      transition: transform 0.3s ease;
+    }
+
+    .active .rotate {
+      transform: rotate(0deg);
+    }
+
+    .active .policy-content {
+      display: block;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <h1>CHÍNH SÁCH BẢO HÀNH</h1>
+  <div class="policy-container">
+    <div class="policy-item">
+      <div class="policy-header" onclick="togglePolicy(this)">
+        Các quy định bảo hành với sản phẩm trang sức
+        <span class="rotate">▶</span>
+      </div>
+      <div class="policy-content">
+        <strong>Chúng tôi cam kết bảo hành các sản phẩm trang sức bạc trong các trường hợp sau:</strong>
+        <p>Lỗi sản xuất bao gồm các lỗi kỹ thuật do quá trình sản xuất gây ra.</p>
+        <p>Bạc bị đen, xỉn màu do chất lượng bạc (không bao gồm các tác động từ môi trường, hóa chất, mồ hôi muối của người sử dụng).</p>
+
+      </div>
+    </div>
+
+    <div class="policy-item">
+      <div class="policy-header" onclick="togglePolicy(this)">
+        Các trường hợp không được bảo hành
+        <span class="rotate">▶</span>
+      </div>
+      <div class="policy-content">
+        <p>Sản phẩm bị hư hỏng do sử dụng không đúng cách, bảo quản không cẩn thận. </p>
+        <p>Sản phẩm bị hao mòn tự nhiên trong quá trình sử dụng (ví dụ: trầy xước nhẹ, móp méo nhỏ không ảnh hưởng đến chức năng).</p>
+        <p>Sản phẩm đã được sửa chữa bởi bên thứ ba không được ủy quyền.</p>
+        <p>Sản phẩm không còn trong thời gian bảo hành.</p>
+      </div>
+    </div>
+
+    <div class="policy-item">
+      <div class="policy-header" onclick="togglePolicy(this)">
+        Chính sách bảo hành
+        <span class="rotate">▶</span>
+      </div>
+      <div class="policy-content">
+        <p><strong>Sửa chữa miễn phí: </strong> Đối với các sản phẩm đáp ứng các quy định bảo hành, chúng tôi sẽ tiến hành sửa chữa miễn phí các lỗi kỹ thuật.</p>
+        <p><strong>Đổi sản phẩm tương đương hoặc hoàn tiền (tùy trường hợp)</strong>Trong trường hợp không thể sửa chữa hoặc lỗi sản xuất nghiêm trọng, chúng tôi có thể xem xét đổi sản phẩm mới tương đương hoặc hoàn lại giá trị sản phẩm (sau khi đã xem xét tình trạng sản phẩm).</p>
+        <p><strong>Vệ sinh và làm sáng miễn phí: </strong>Chúng tôi hỗ trợ vệ sinh và làm sáng trang sức bạc miễn phí trong thời gian bảo hành (không bao gồm các dịch vụ đánh bóng đặc biệt hoặc xi mạ).</p>
+      </div>
+    </div>
+
+    <div class="policy-item">
+      <div class="policy-header" onclick="togglePolicy(this)">
+        Thời gian bảo hành
+        <span class="rotate">▶</span>
+      </div>
+      <div class="policy-content">
+        Thời gian bảo hành cho các sản phẩm trang sức bạc là: <strong>6 tháng đến 10 tháng </strong>kể từ ngày mua hàng được ghi trên hóa đơn mua hàng.
+        <p><strong>Lưu ý:</strong></p>
+        <p>Khi yêu cầu bảo hành, quý khách vui lòng mang theo sản phẩm và hóa đơn mua hàng (hoặc các chứng từ mua hàng hợp lệ khác).</p>
+        <p>Thời gian xử lý bảo hành có thể dao động tùy thuộc vào mức độ phức tạp của lỗi. </p>
+        <p>Chính sách bảo hành này có thể được điều chỉnh hoặc thay đổi mà không cần thông báo trước. Vui lòng tham khảo thông tin bảo hành mới nhất tại cửa hàng hoặc trên website của chúng tôi.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function togglePolicy(header) {
+      const item = header.parentElement;
+      item.classList.toggle('active');
+    }
+  </script>
+</body>
+
+</html>

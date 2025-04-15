@@ -1,0 +1,568 @@
+:root {
+    --primary-color: #FF9999; /* Hồng đậm nhất */
+    --hover-pink: #FFB3B3;    /* Hồng đậm vừa */
+    --medium-pink: #FFC7C7;   /* Hồng phấn trung bình */
+    --pastel-pink: #FFDADA;   /* Hồng pastel */
+    --light-pink-bg: #FFECEC; /* Hồng nhạt */
+    --lightest-pink-bg: #FFF5F5;/* Hồng rất nhạt */
+
+    --text-color: #333;
+    --heading-color: #222;
+    --border-color: var(--pastel-pink);
+
+    --font-primary: 'Lato', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+}
+
+/* --- Reset & Base Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--lightest-pink-bg); /* Nền body */
+    font-size: 16px;
+}
+
+.container {
+    max-width: 900px; /* Giới hạn chiều rộng */
+    margin: 40px auto; /* Căn giữa và tạo khoảng cách trên dưới */
+    padding: 20px;
+    background-color: #fff; /* Nền trắng cho nội dung chính */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color); /* Màu hồng đậm cho tiêu đề chính */
+    margin-bottom: 1.5rem;
+}
+
+p.intro {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+p.intro strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* --- Notice Section --- */
+.notice-section {
+    display: flex;
+    background-color: var(--light-pink-bg); /* Nền hồng nhạt */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 2.5rem;
+    overflow: hidden; /* Để bo góc hoạt động đúng */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.notice-image {
+    flex: 0 0 40%; /* Chiếm 40% chiều rộng */
+    position: relative; /* Để định vị logo */
+    background-color: #003f7d; /* Màu nền xanh giống PNJ (có thể đổi) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Tạo khoảng trống */
+    min-height: 250px; /* Đảm bảo chiều cao tối thiểu */
+}
+
+.notice-image img {
+    max-width: 60%; /* Giới hạn kích thước ảnh */
+    height: auto;
+    display: block;
+    /* Cần hình ảnh thực tế để căn chỉnh tốt hơn */
+}
+
+.notice-image .brand-logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #003f7d; /* Màu chữ logo */
+    padding: 8px 15px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    border-radius: 4px;
+}
+
+.notice-content {
+    flex: 1; /* Chiếm phần còn lại */
+    padding: 30px;
+}
+
+.notice-content h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem; /* Tăng kích thước chữ "LƯU Ý" */
+    color: #003f7d; /* Màu chữ xanh đậm */
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.notice-content h3 {
+    font-family: var(--font-primary); /* Dùng Lato cho dễ đọc */
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color); /* Màu hồng đậm */
+    margin-bottom: 1rem;
+}
+
+.notice-content p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.notice-content .important-text {
+    color: red;
+    font-weight: bold;
+    border: 1px dashed red;
+    padding: 10px;
+    background-color: #fff5f5;
+    border-radius: 4px;
+}
+
+.notice-content .contact-info {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    color: #555;
+    background-color: #fef9e7; /* Nền vàng nhạt */
+    padding: 15px;
+    border-radius: 4px;
+    border-left: 4px solid #f1c40f; /* Đường viền vàng bên trái */
+}
+
+.notice-content .contact-info strong {
+    color: var(--primary-color);
+}
+
+/* --- Accordion --- */
+.accordion {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.accordion-item {
+    border-bottom: 1px solid var(--border-color);
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    background-color: #fff;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+    font-family: var(--font-primary);
+    transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: var(--lightest-pink-bg);
+}
+
+.accordion-header i {
+    transition: transform 0.3s ease;
+    color: var(--primary-color);
+}
+
+/* Đã sửa: Áp dụng cho icon khi header có class active */
+.accordion-header.active i {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    /* Đã sửa: Chỉ transition max-height */
+    transition: max-height 0.4s ease-out; 
+    /* Đã sửa: Xóa padding ở trạng thái đóng */
+    background-color: #fff;
+}
+
+/* Đã sửa: Dùng selector này và thêm padding */
+.accordion-item.active .accordion-content {
+    padding: 20px; /* Thêm padding khi mở */
+    max-height: 1000px; /* Đặt chiều cao đủ lớn */
+}
+
+.accordion-content p {
+    margin-bottom: 1rem;
+}
+.accordion-content ul {
+    margin-left: 20px;
+    margin-bottom: 1rem;
+}
+.accordion-content li {
+    margin-bottom: 0.5rem;
+}
+.accordion-content strong {
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+/* --- FAQ Category Styles --- */
+.faq-category {
+    margin-bottom: 2.5rem; /* Khoảng cách giữa các danh mục câu hỏi */
+}
+
+.faq-category h2 {
+    font-size: 1.8rem; /* Kích thước tiêu đề danh mục */
+    color: var(--primary-color); /* Màu hồng đậm cho tiêu đề danh mục */
+    border-bottom: 2px solid var(--pastel-pink); /* Đường kẻ dưới tiêu đề */
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem; /* Khoảng cách dưới tiêu đề */
+    font-family: var(--font-heading); /* Đảm bảo dùng Playfair Display */
+}
+
+.faq-category .accordion {
+    border: none; /* Bỏ border ngoài của accordion trong category */
+    border-radius: 0;
+    overflow: visible; /* Cho phép box-shadow nếu có */
+}
+
+.faq-category .accordion-item {
+    border: 1px solid var(--border-color); /* Thêm border cho từng item */
+    border-radius: 5px; /* Bo góc cho từng item */
+    margin-bottom: 10px; /* Khoảng cách giữa các câu hỏi */
+    overflow: hidden; /* Đảm bảo bo góc hoạt động */
+}
+
+.faq-category .accordion-item:last-child {
+    border-bottom: 1px solid var(--border-color); /* Đảm bảo item cuối cũng có border */
+}
+.faq-category .accordion-header {
+    background-color: var(--lightest-pink-bg); /* Màu nền nhẹ cho câu hỏi */
+}
+.faq-category .accordion-header:hover {
+    background-color: var(--light-pink-bg); /* Màu nền đậm hơn khi hover */
+}
+
+.faq-category .accordion-content {
+    background-color: #fff; /* Nền trắng cho câu trả lời */
+     /* Đã sửa: Bỏ border-top */
+}
+.faq-category .accordion-content a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.faq-category .accordion-content a:hover {
+    text-decoration: underline;
+}
+
+/* --- Support Channels --- */
+.support-channels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grid linh hoạt */
+    gap: 20px; /* Khoảng cách giữa các card */
+    margin-bottom: 3rem;
+}
+
+.support-channel.card {
+    background-color: #fff;
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.support-channel.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+
+.support-icon {
+    font-size: 2.5rem; /* Kích thước icon */
+    color: var(--primary-color); /* Màu hồng đậm */
+    margin-bottom: 1rem;
+}
+
+.support-channel h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
+    font-family: var(--font-heading);
+}
+
+.support-channel p {
+    margin-bottom: 1rem;
+    color: #555;
+    font-size: 0.95rem;
+}
+.support-channel p.support-note {
+    font-size: 0.85rem;
+    color: #777;
+    font-style: italic;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.support-link.contact-value,
+.contact-value { /* Áp dụng cho cả số điện thoại và email */
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    word-break: break-all; /* Ngắt chữ nếu email/số quá dài */
+}
+.support-link:hover {
+    text-decoration: underline;
+}
+
+.support-button,
+.submit-button { /* Style chung cho các nút */
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: var(--font-primary);
+}
+
+.support-button:hover,
+.submit-button:hover {
+    background-color: var(--hover-pink); /* Màu hover */
+}
+
+/* --- Social Links --- */
+.social-links a {
+    font-size: 2rem;
+    color: var(--medium-pink); /* Màu hồng trung bình */
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.social-links a:hover {
+    color: var(--primary-color); /* Đậm hơn khi hover */
+}
+
+
+/* --- Contact Form Section --- */
+.contact-form-section {
+    background-color: var(--lightest-pink-bg); /* Nền hồng rất nhạt */
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+    border: 1px solid var(--pastel-pink);
+}
+
+.contact-form-section h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+.contact-form-section p {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--heading-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--medium-pink); /* Viền hồng khi focus */
+    box-shadow: 0 0 0 2px var(--light-pink-bg); /* Hiệu ứng nhẹ khi focus */
+}
+
+
+.form-group textarea {
+    resize: vertical; /* Cho phép thay đổi chiều cao textarea */
+}
+
+.submit-button {
+    display: block; /* Nút chiếm hết chiều rộng */
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+/* --- Helpful Links --- */
+.helpful-links {
+    margin-bottom: 2rem;
+    padding: 20px;
+    background-color: var(--lightest-pink-bg);
+    border-radius: 8px;
+    border: 1px solid var(--pastel-pink);
+}
+.helpful-links h2 {
+     font-size: 1.5rem;
+     color: var(--primary-color);
+     margin-bottom: 1rem;
+     text-align: center;
+}
+.helpful-links ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+.helpful-links li {
+    margin-bottom: 10px;
+}
+.helpful-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+.helpful-links a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+.helpful-links i {
+    margin-right: 8px;
+    color: var(--medium-pink);
+}
+
+
+/* --- Footer --- */
+.footer {
+    text-align: right;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #888;
+    font-style: italic;
+}
+
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .notice-section {
+        flex-direction: column; /* Xếp chồng lên nhau */
+    }
+
+    .notice-image {
+        flex: 0 0 auto; /* Reset flex */
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        min-height: auto; /* Reset chiều cao tối thiểu */
+        padding: 15px;
+    }
+     .notice-image img {
+        max-width: 40%; /* Giảm kích thước ảnh trên mobile */
+    }
+
+    .notice-content {
+        padding: 20px;
+    }
+
+    .notice-content h2 {
+        font-size: 2rem; /* Giảm kích thước chữ "LƯU Ý" */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+     /* FAQ Responsive */
+    .faq-category h2 {
+        font-size: 1.5rem;
+    }
+    /* Support Responsive */
+    .support-channels {
+        grid-template-columns: 1fr; /* 1 cột trên mobile */
+    }
+    /* Form Responsive */
+    .contact-form-section {
+        padding: 20px;
+    }
+    .contact-form-section h2,
+    .helpful-links h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+     .container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    p.intro {
+        font-size: 1rem;
+    }
+    .notice-image .brand-logo {
+        font-size: 1.2rem;
+        padding: 5px 10px;
+        top: 10px;
+        left: 10px;
+    }
+    .notice-content h2 {
+        font-size: 1.8rem;
+    }
+     .accordion-header {
+        font-size: 1rem;
+        padding: 12px 15px;
+    }
+    body{
+        font-size: 15px;
+    }
+     /* FAQ Responsive */
+     .faq-category h2 {
+        font-size: 1.3rem;
+     }
+}

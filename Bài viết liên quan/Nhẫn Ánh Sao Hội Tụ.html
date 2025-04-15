@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Nhẫn Ánh Sao Hội Tụ - TNL Jewelry</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ---------- BIẾN CSS & CÀI ĐẶT CHUNG ---------- */
+        :root {
+            --primary-color: #FF9999;
+            --hover-pink: hwb(0 70% 0%);
+            --medium-pink: #FFC7C7;
+            --pastel-pink: #FFDADA;
+            --light-pink-bg: #FFECEC;
+            --lightest-pink-bg: #FFF5F5;
+            --secondary-color: #333;
+            --text-color: #555;
+            --white: #fff;
+            --font-family: 'Lato', sans-serif;
+            --heading-font: 'Playfair Display', serif;
+            --container-width: 1100px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--lightest-pink-bg);
+            font-size: 16px;
+            padding: 20px 0;
+        }
+
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
+
+        h1, h2, h3, h4 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            color: var(--secondary-color);
+            line-height: 1.3;
+        }
+
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: var(--primary-color); transition: color 0.3s ease; }
+        a:hover { color: var(--hover-pink); }
+        ul { list-style: none; }
+
+        /* --- Style Nút --- */
+        .btn {
+            display: inline-block; padding: 12px 28px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: 700; text-align: center; font-size: 1em; text-transform: uppercase; letter-spacing: 0.5px;
+            font-family: var(--font-family);
+        }
+        .btn:hover { background-color: var(--hover-pink); transform: translateY(-2px); }
+        .btn:active { transform: translateY(0); }
+        .btn-primary { background-color: var(--secondary-color); color: var(--white); }
+        .btn-primary:hover { background-color: #555; }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 25px;
+        }
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+        .btn-outline i { margin-right: 8px; }
+        .btn-secondary {
+             background-color: #eee;
+             color: #555;
+             border: 1px solid #ddd;
+             padding: 8px 18px;
+             text-transform: none;
+        }
+        .btn-secondary:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        /* ---------- PRODUCT DETAIL SECTION STYLES ---------- */
+        .product-detail-section {
+            padding: 40px 0;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .product-layout {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .product-image-column {
+            flex: 1 1 40%;
+            min-width: 280px;
+            text-align: center;
+        }
+
+        .product-image-column img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-info-column {
+            flex: 1 1 55%;
+            min-width: 300px;
+        }
+
+        .product-title {
+            font-family: var(--heading-font);
+            font-size: 2.2em;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .product-rating-sold {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 15px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            font-size: 0.95em;
+        }
+
+        .rating-stars {
+            color: #fadb14;
+            font-size: 1.1em;
+            white-space: nowrap;
+        }
+
+        .review-count, .sold-count {
+            color: var(--text-color);
+             white-space: nowrap;
+        }
+
+        .separator {
+            color: #ccc;
+            margin: 0 5px;
+            display: inline-block;
+        }
+
+        .product-price {
+            margin-bottom: 25px;
+        }
+
+        .current-price {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+
+        .original-price {
+            font-size: 1.2em;
+            text-decoration: line-through;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        .product-intro {
+            font-family: var(--font-family);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: var(--text-color);
+        }
+
+        .product-specs h4 {
+            font-family: var(--heading-font);
+            font-size: 1.3em;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--pastel-pink);
+            padding-bottom: 5px;
+        }
+
+        .product-specs ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        .product-specs ul li {
+            font-family: var(--font-family);
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-color);
+            font-size: 0.95em;
+        }
+        .product-specs ul li::before {
+             content: '\f00c'; /* Font Awesome check icon */
+             font-family: 'Font Awesome 6 Free';
+             font-weight: 900;
+             color: var(--primary-color);
+             position: absolute;
+             left: 0;
+             top: 2px;
+             font-size: 0.85em;
+        }
+
+        .product-actions-detail {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            border-top: 1px solid var(--light-pink-bg);
+            padding-top: 25px;
+        }
+
+        .product-actions-detail .btn-primary {
+             padding: 12px 28px;
+        }
+
+        .product-reviews-section {
+             margin-top: 30px;
+             border-top: 1px solid var(--light-pink-bg);
+             padding-top: 25px;
+        }
+
+        .product-reviews-section h4 {
+             font-family: var(--heading-font);
+             font-size: 1.3em;
+             color: var(--secondary-color);
+             margin-bottom: 15px;
+             border-bottom: none;
+             padding-bottom: 0;
+        }
+        .product-reviews-section p {
+            font-family: var(--font-family);
+            color: var(--text-color);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .product-layout { flex-direction: column; gap: 30px; }
+            .product-image-column, .product-info-column { flex: 1 1 100%; }
+            .product-title { font-size: 1.8em; }
+            .current-price { font-size: 1.6em; }
+        }
+         @media (max-width: 480px) {
+             .product-actions-detail { flex-direction: column; align-items: stretch; }
+             .product-actions-detail .btn { width: 100%; }
+         }
+
+    </style>
+</head>
+<body>
+
+    <section id="product-detail-asht" class="product-detail-section">
+        <div class="container">
+            <div class="product-layout">
+                <div class="product-image-column">
+                    <img src="../images/16.jpg" alt="Nhẫn Ánh Sao Hội Tụ Vàng Hồng Đá Quý TNL" id="main-product-image-asht">
+                </div>
+
+                <div class="product-info-column">
+                    <h2 class="product-title">Nhẫn Ánh Sao Hội Tụ</h2>
+
+                    <div class="product-rating-sold">
+                        <span class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            </span>
+                        <span class="review-count">(75 đánh giá)</span>
+                         <span class="separator" aria-hidden="true">|</span>
+                        <span class="sold-count">Đã bán: 150+</span>
+                         </div>
+
+                    <div class="product-price">
+                         <span class="current-price">6.500.000₫</span>
+                        </div>
+
+                    <p class="product-intro">
+                        Tỏa sáng độc đáo cùng nhẫn 'Ánh Sao Hội Tụ'. Thiết kế hiện đại với hai đường vàng hồng 14k uyển chuyển hội tụ, nâng niu hai viên đá Moissanite lấp lánh giác cắt Pear như những vì sao tinh tú. Một lựa chọn hoàn hảo cho quý cô yêu thích sự khác biệt, tinh tế và thanh lịch.
+                    </p>
+
+                    <div class="product-specs">
+                        <h4>Cấu tạo & Chi tiết</h4>
+                        <ul>
+                             <li>Chất liệu: Vàng hồng 14k</li>
+                            <li>Đá chính: 2 viên Đá Moissanite</li>
+                            <li>Giác cắt đá chính: Pear (Quả lê)</li>
+                            <li>Tổng trọng lượng đá chính (ước lượng): 0.5 Carat</li>
+                            <li>Kiểu dáng: Nhẫn đai kép (Split Shank)</li>
+                            <li>Size nhẫn: Làm theo size tay khách hàng</li>
+                            <li>Xuất xứ: Thiết kế & chế tác bởi TNL Jewelry</li>
+                            <li>Bảo hành: Trọn đời chất liệu vàng, 12 tháng cho đá</li>
+                        </ul>
+                    </div>
+
+                    <div class="product-actions-detail">
+                        <button class="btn btn-outline" onclick="thêmVàoGiỏ({
+                            id: 'NAST-01',
+                            name: 'Nhẫn Ánh Sao Hội Tụ',
+                            price: 6500000,
+                            image: '../images/16.jpg'
+                        })">
+                            <i class="fas fa-shopping-cart"></i> Thêm vào giỏ
+                        </button>
+                        <a href="../Thanh toán/TRANG THANH TOÁN.html?sanpham=NAST-01&ten=Nhẫn+Ánh+Sao+Hội+Tụ&gia=6500000&hinh=../images/16.jpg" 
+                           class="btn btn-primary">
+                            Mua Ngay
+                        </a>
+                    </div>
+
+                    <div class="product-reviews-section">
+                         <h4>Đánh giá sản phẩm</h4>
+                         <p>Những phản hồi chân thực từ khách hàng đã sở hữu.</p>
+                         <div id="product-reviews-placeholder-asht">
+                             <div class="review-item" style="border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 10px;">
+                                 <div class="review-rating">★★★★★</div>
+                                 <div class="review-author"><strong>Bảo Trân</strong> - <span style="font-size: 0.8em; color: #888;">15/03/2025</span></div>
+                                 <p class="review-text" style="margin-top: 5px; font-style: normal;">Nhẫn đẹp lạ mắt lắm, đeo lên sang hẳn tay. Đá sáng long lanh luôn. Rất hài lòng!</p>
+                             </div>
+                              <div class="review-item" style="border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 10px;">
+                                 <div class="review-rating">★★★★★</div>
+                                 <div class="review-author"><strong>Yến Nhi</strong> - <span style="font-size: 0.8em; color: #888;">10/03/2025</span></div>
+                                 <p class="review-text" style="margin-top: 5px; font-style: normal;">Thiết kế tinh xảo, mình thích kiểu đai kép này, nhìn không bị thô mà rất hiện đại. Shop tư vấn size chuẩn.</p>
+                             </div>
+                         </div>
+                         <a href="#leave-review" class="btn btn-secondary">Viết đánh giá của bạn</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ========== PRODUCT DETAIL PAGE LOGIC (Nhẫn Ánh Sao Hội Tụ) ==========
+
+            // ★★★ Đảm bảo ID các nút này là duy nhất ★★★
+            const addToCartButtonASHT = document.getElementById('add-to-cart-asht');
+            const buyNowButtonASHT = document.getElementById('buy-now-asht');
+
+            // --- Xử lý nút "Thêm vào giỏ" ---
+            if (addToCartButtonASHT) {
+                addToCartButtonASHT.addEventListener('click', () => {
+                    const productId = 'TNL-ASHT01'; // ID sản phẩm ví dụ
+                    const productName = 'Nhẫn Ánh Sao Hội Tụ';
+                    const quantity = 1;
+
+                    console.log(`Đã thêm vào giỏ: ${quantity} x ${productName} (ID: ${productId})`);
+                    // ★★★ Logic thêm vào giỏ hàng thực tế ★★★
+                    alert(`${productName} đã được thêm vào giỏ hàng!`);
+                });
+            }
+
+            // --- Xử lý nút "Mua Ngay" ---
+            if (buyNowButtonASHT) {
+                buyNowButtonASHT.addEventListener('click', () => {
+                    const productId = 'TNL-ASHT01';
+                    const productName = 'Nhẫn Ánh Sao Hội Tụ';
+                    const quantity = 1;
+
+                    console.log(`Mua ngay: ${quantity} x ${productName} (ID: ${productId})`);
+                    // ★★★ Logic chuyển đến trang thanh toán hoặc xử lý mua ngay thực tế ★★★
+                    alert(`Chuẩn bị mua ngay ${productName}! (Chuyển hướng đến trang thanh toán...)`);
+                    // window.location.href = '/checkout?productId=' + productId + '&quantity=' + quantity;
+                });
+            }
+
+        }); // End DOMContentLoaded
+    </script>
+
+</body>
+</html>

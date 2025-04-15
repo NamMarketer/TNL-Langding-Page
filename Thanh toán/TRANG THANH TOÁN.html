@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán đơn hàng - TNL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="checkout-header">
+        <div class="container">
+             <a href="index.html" class="logo">TNL</a> <h1>Thanh toán</h1>
+        </div>
+    </header>
+
+    <div class="container checkout-container">
+        <div class="checkout-details">
+            <section class="checkout-section">
+                <h2><i class="fas fa-map-marker-alt"></i> Thông tin giao hàng</h2>
+                <form id="shipping-form">
+                    <div class="form-group">
+                        <label for="checkout-name">Họ và tên người nhận:</label>
+                        <input type="text" id="checkout-name" name="name" required placeholder="Nhập họ và tên">
+                    </div>
+                    <div class="form-group">
+                        <label for="checkout-phone">Số điện thoại:</label>
+                        <input type="tel" id="checkout-phone" name="phone" required placeholder="Nhập số điện thoại">
+                    </div>
+                    <div class="form-group">
+                        <label for="checkout-email">Email (để nhận thông tin đơn hàng):</label>
+                        <input type="email" id="checkout-email" name="email" required placeholder="Nhập địa chỉ email">
+                    </div>
+                    <div class="form-group">
+                        <label for="checkout-address">Địa chỉ nhận hàng:</label>
+                        <input type="text" id="checkout-address" name="address" required placeholder="Số nhà, tên đường...">
+                    </div>
+                    <div class="form-row">
+                         <div class="form-group">
+                             <label for="checkout-province">Tỉnh/Thành phố:</label>
+                             <select id="checkout-province" name="province" required>
+                                 <option value="">-- Chọn Tỉnh/Thành phố --</option>
+                                 <option value="hcm">TP. Hồ Chí Minh</option>
+                                 <option value="hn">Hà Nội</option>
+                                 <option value="dn">Đồng Nai</option>
+                                 </select>
+                         </div>
+                         <div class="form-group">
+                             <label for="checkout-district">Quận/Huyện:</label>
+                             <select id="checkout-district" name="district" required>
+                                  <option value="">-- Chọn Quận/Huyện --</option>
+                                  <option value="q1">Quận 1</option>
+                                  <option value="bh">Biên Hòa</option>
+                             </select>
+                         </div>
+                    </div>
+                     <div class="form-group">
+                        <label for="checkout-notes">Ghi chú (Tùy chọn):</label>
+                        <textarea id="checkout-notes" name="notes" rows="3" placeholder="Ghi chú thêm về đơn hàng..."></textarea>
+                    </div>
+                </form>
+            </section>
+
+            <section class="checkout-section">
+                <h2><i class="fas fa-truck"></i> Phương thức vận chuyển</h2>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="shipping_method" value="standard" checked>
+                        <span class="radio-custom"></span>
+                        Giao hàng tiêu chuẩn (Dự kiến 3-5 ngày) - <span class="shipping-cost">25.000₫</span>
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="shipping_method" value="express">
+                         <span class="radio-custom"></span>
+                        Giao hàng nhanh (Dự kiến 1-2 ngày) - <span class="shipping-cost">40.000₫</span>
+                    </label>
+                     </div>
+            </section>
+
+            <section class="checkout-section">
+                <h2><i class="fas fa-credit-card"></i> Phương thức thanh toán</h2>
+                 <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="payment_method" value="cod" checked data-target="payment-cod">
+                         <span class="radio-custom"></span>
+                        <i class="fas fa-money-bill-wave icon-payment"></i> Thanh toán khi nhận hàng (COD)
+                    </label>
+                     <label class="radio-label">
+                        <input type="radio" name="payment_method" value="bank" data-target="payment-bank">
+                         <span class="radio-custom"></span>
+                        <i class="fas fa-university icon-payment"></i> Chuyển khoản ngân hàng
+                    </label>
+                     <label class="radio-label">
+                        <input type="radio" name="payment_method" value="momo" data-target="payment-momo">
+                         <span class="radio-custom"></span>
+                         <img src="images/momo-icon.png" alt="Momo" class="icon-payment icon-image" style="width: 24px; height: 24px;"> Thanh toán qua MoMo
+                    </label>
+                     <label class="radio-label">
+                        <input type="radio" name="payment_method" value="card" data-target="payment-card">
+                        <span class="radio-custom"></span>
+                        <i class="fas fa-credit-card icon-payment"></i> Thẻ quốc tế Visa, Master, JCB
+                    </label>
+                    </div>
+
+                <div id="payment-details">
+                    <div id="payment-cod" class="payment-content active">
+                        <p>Bạn sẽ thanh toán bằng tiền mặt trực tiếp cho nhân viên giao hàng khi nhận sản phẩm.</p>
+                    </div>
+                    <div id="payment-bank" class="payment-content">
+                        <p>Quý khách vui lòng chuyển khoản vào tài khoản sau:</p>
+                        <p><strong>Ngân hàng:</strong> Vietcombank</p>
+                        <p><strong>Chủ tài khoản:</strong> CÔNG TY TNHH TNL</p>
+                        <p><strong>Số tài khoản:</strong> 1234567890</p>
+                        <div class="qr-code-container">
+                            <img src="../images/QR.png" alt="QR Chuyển khoản" class="payment-qr" style="max-width: 200px;">
+                            <p class="qr-note">Quét mã QR để chuyển khoản</p>
+                            <p class="qr-instruction">Sử dụng ứng dụng ngân hàng hoặc ví điện tử để quét mã</p>
+                        </div>
+                        <p><i>(Đơn hàng sẽ được xử lý sau khi TNL nhận được thanh toán)</i></p>
+                    </div>
+                    <div id="payment-momo" class="payment-content">
+                        <p>Quét mã QR bằng ứng dụng MoMo để thanh toán ngay:</p>
+                        <div class="qr-code-container">
+                            <img src="../images/QR.png" alt="QR MoMo" class="payment-qr" style="max-width: 200px;">
+                            <p class="qr-note">Mở app MoMo và quét mã</p>
+                            <p class="qr-instruction">Hoặc nhập SĐT MoMo: 0123456789</p>
+                        </div>
+                    </div>
+                    <div id="payment-card" class="payment-content">
+                         <p>Thanh toán an toàn qua cổng thanh toán [Tên cổng thanh toán]. Bạn sẽ được chuyển hướng sau khi đặt hàng.</p>
+                         </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="order-summary">
+            <section class="checkout-section">
+                <h2><i class="fas fa-shopping-bag"></i> Đơn hàng của bạn</h2>
+                <ul class="cart-items-summary">
+                    <!-- Product will be inserted here by JavaScript -->
+                </ul>
+
+                <div class="order-totals">
+                    <div class="total-row subtotal">
+                        <span>Tạm tính:</span>
+                        <span id="subtotal">0₫</span>
+                    </div>
+                    <div class="total-row shipping">
+                        <span>Phí vận chuyển:</span>
+                        <span id="shipping-cost">25.000₫</span>
+                    </div>
+                    <div class="total-row discount" style="display: none;">
+                        <span>Giảm giá:</span>
+                        <span id="discount-amount">-0₫</span>
+                    </div>
+                    <div class="total-row grand-total">
+                        <span>Tổng cộng:</span>
+                        <span id="final-amount">0₫</span>
+                    </div>
+                </div>
+
+                <div class="order-actions">
+                    <button type="submit" form="shipping-form" class="place-order-button" id="submitOrder">
+                        <i class="fas fa-lock"></i> Đặt hàng
+                    </button>
+                    <div id="orderStatus" class="order-status" style="display: none;">
+                        <div class="status-spinner">
+                            <i class="fas fa-spinner fa-spin"></i>
+                        </div>
+                        <p class="status-text">Đang xử lý đơn hàng...</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="checkout-footer">
+        <div class="container">
+            &copy; 2025 TNL. Bảo lưu mọi quyền.
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    <script>
+        // --- JavaScript cho trang Checkout ---
+
+        // 1. Xử lý chọn Phương thức thanh toán
+        const paymentRadios = document.querySelectorAll('input[name="payment_method"]');
+        const paymentContents = document.querySelectorAll('.payment-content');
+        const paymentDetailsContainer = document.getElementById('payment-details');
+
+        paymentRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                const targetId = this.getAttribute('data-target');
+
+                // Ẩn tất cả nội dung chi tiết
+                paymentContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Hiển thị nội dung tương ứng
+                const targetContent = document.getElementById(targetId);
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                     // Cuộn đến phần chi tiết thanh toán nếu cần (trên mobile có thể bị che)
+                     // paymentDetailsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+        });
+
+        // Kích hoạt hiển thị nội dung cho phương thức được chọn mặc định khi tải trang
+        document.querySelector('input[name="payment_method"]:checked').dispatchEvent(new Event('change'));
+
+
+        // 2. Xử lý Placeholder cho việc load Quận/Huyện (Cần JS phức tạp hơn hoặc thư viện)
+        const provinceSelect = document.getElementById('checkout-province');
+        const districtSelect = document.getElementById('checkout-district');
+
+        if (provinceSelect) {
+            provinceSelect.addEventListener('change', function() {
+                const selectedProvince = this.value;
+                // --- Logic để load quận/huyện tương ứng vào districtSelect ---
+                // Ví dụ đơn giản (cần thay bằng dữ liệu thật/API)
+                 districtSelect.innerHTML = '<option value="">-- Chọn Quận/Huyện --</option>'; // Reset
+                 if (selectedProvince === 'hcm') {
+                     districtSelect.innerHTML += '<option value="q1">Quận 1</option><option value="q2">Quận 2</option>';
+                 } else if (selectedProvince === 'dn') {
+                     districtSelect.innerHTML += '<option value="bh">Biên Hòa</option><option value="lk">Long Khánh</option>';
+                 } else if (selectedProvince === 'hn') {
+                     districtSelect.innerHTML += '<option value="hbt">Hai Bà Trưng</option><option value="đd">Đống Đa</option>';
+                 }
+                 // --- Kết thúc logic load quận/huyện ---
+            });
+        }
+
+        // 3. Placeholder cho nút "Áp dụng" mã giảm giá
+        const applyPromoButton = document.querySelector('.apply-promo-button');
+        if (applyPromoButton) {
+            applyPromoButton.addEventListener('click', function() {
+                // --- Logic kiểm tra và áp dụng mã giảm giá ---
+                alert('Placeholder: Xử lý áp dụng mã giảm giá.');
+                // Ví dụ: Hiển thị dòng giảm giá
+                // document.querySelector('.discount-row').style.display = 'flex';
+                // document.querySelector('.discount-amount').textContent = '-50.000₫';
+                // Cập nhật lại tổng tiền ...
+                // --- Kết thúc logic mã giảm giá ---
+            });
+        }
+
+        // 4. Cập nhật phí vận chuyển & tổng tiền khi chọn PTVC (Placeholder)
+        const shippingRadios = document.querySelectorAll('input[name="shipping_method"]');
+        shippingRadios.forEach(radio => {
+             radio.addEventListener('change', function() {
+                 // --- Logic cập nhật phí vận chuyển và tổng tiền ---
+                 alert('Placeholder: Cập nhật phí vận chuyển và tổng tiền.');
+                 // --- Kết thúc logic cập nhật ---
+             });
+        });
+
+
+         // 5. Ngăn form gửi đi (demo)
+         const shippingForm = document.getElementById('shipping-form');
+         if (shippingForm) {
+            shippingForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                alert('Placeholder: Form hợp lệ, chuẩn bị gửi đơn hàng đi (cần backend xử lý).');
+                // Thực tế: có thể thực hiện validation cuối cùng ở đây
+                // và sau đó gửi dữ liệu qua AJAX hoặc để form tự submit nếu action hợp lệ
+                // window.location.href = '/dat-hang-thanh-cong.html'; // Chuyển hướng đến trang cảm ơn
+            });
+         }
+
+         // Add product and totals handling
+         window.addEventListener('DOMContentLoaded', function() {
+             const urlParams = new URLSearchParams(window.location.search);
+             const productName = urlParams.get('name');
+             const productImage = urlParams.get('image');
+             const productPrice = parseInt(urlParams.get('price')) || 0;
+             
+             function formatPrice(price) {
+                 return price.toLocaleString('vi-VN') + '₫';
+             }
+             
+             function updateOrderSummary() {
+                 const subtotal = productPrice;
+                 const shippingMethod = document.querySelector('input[name="shipping_method"]:checked').value;
+                 const shippingCost = shippingMethod === 'express' ? 40000 : 25000;
+                 const discount = 0; // Add discount logic if needed
+                 const total = subtotal + shippingCost - discount;
+                 
+                 // Update display
+                 document.getElementById('subtotal').textContent = formatPrice(subtotal);
+                 document.getElementById('shipping-cost').textContent = formatPrice(shippingCost);
+                 document.getElementById('final-amount').textContent = formatPrice(total);
+             }
+
+             if (productName && productImage && productPrice) {
+                 // Update product display
+                 const cartItems = document.querySelector('.cart-items-summary');
+                 cartItems.innerHTML = `
+                     <li class="cart-item-summary">
+                         <img src="../${productImage}" alt="${productName}">
+                         <div class="item-info">
+                             <span class="item-name">${productName}</span>
+                             <span class="item-qty">Số lượng: 1</span>
+                         </div>
+                         <span class="item-price">${formatPrice(productPrice)}</span>
+                     </li>
+                 `;
+                 
+                 // Initial update of totals
+                 updateOrderSummary();
+                 
+                 // Update totals when shipping method changes
+                 document.querySelectorAll('input[name="shipping_method"]').forEach(radio => {
+                     radio.addEventListener('change', updateOrderSummary);
+                 });
+             }
+         });
+
+         // Add shipping cost calculation
+         function updateTotals() {
+             const subtotal = parseInt(document.getElementById('subtotal').textContent.replace(/[^\d]/g, '')) || 0;
+             const shippingMethod = document.querySelector('input[name="shipping_method"]:checked').value;
+             const shippingCost = shippingMethod === 'express' ? 40000 : 25000;
+             
+             document.getElementById('shipping-cost').textContent = shippingCost.toLocaleString('vi-VN') + '₫';
+             
+             // Calculate final amount
+             const discount = parseInt(document.getElementById('discount-amount').textContent.replace(/[^\d]/g, '')) || 0;
+             const finalAmount = subtotal + shippingCost - discount;
+             document.getElementById('final-amount').textContent = finalAmount.toLocaleString('vi-VN') + '₫';
+         }
+
+         // Handle order submission
+         document.getElementById('submitOrder').addEventListener('click', function(event) {
+             event.preventDefault();
+             const orderStatus = document.getElementById('orderStatus');
+             const submitButton = this;
+             
+             // Show processing status
+             submitButton.style.display = 'none';
+             orderStatus.style.display = 'block';
+             
+             // Simulate order processing
+             setTimeout(() => {
+                 const paymentMethod = document.querySelector('input[name="payment_method"]:checked').value;
+                 if (paymentMethod === 'cod') {
+                     alert('Đơn hàng đã được xác nhận! Chúng tôi sẽ liên hệ để xác nhận và giao hàng.');
+                 } else {
+                     const paymentContent = document.querySelector(`#payment-${paymentMethod}`);
+                     if (paymentContent) {
+                         paymentContent.scrollIntoView({ behavior: 'smooth' });
+                     }
+                     alert('Vui lòng hoàn tất thanh toán để xác nhận đơn hàng!');
+                 }
+                 
+                 // Reset status display
+                 submitButton.style.display = 'block';
+                 orderStatus.style.display = 'none';
+             }, 2000);
+         });
+
+         // Add shipping method change handler
+         document.querySelectorAll('input[name="shipping_method"]').forEach(radio => {
+             radio.addEventListener('change', updateTotals);
+         });
+
+         // Display cart items from localStorage
+         document.addEventListener('DOMContentLoaded', function() {
+             const cart = JSON.parse(localStorage.getItem('tnl-cart')) || [];
+             const cartItems = document.querySelector('.cart-items-summary');
+             let subtotal = 0;
+
+             if (cart.length > 0) {
+                 let html = '';
+                 cart.forEach(item => {
+                     subtotal += item.price * item.quantity;
+                     html += `
+                         <li class="cart-item-summary">
+                             <img src="../${item.image}" alt="${item.name}">
+                             <div class="item-info">
+                                 <span class="item-name">${item.name}</span>
+                                 <span class="item-qty">Số lượng: ${item.quantity}</span>
+                             </div>
+                             <span class="item-price">${formatPrice(item.price * item.quantity)}</span>
+                         </li>`;
+                 });
+                 cartItems.innerHTML = html;
+             }
+
+             const shippingCost = 25000;
+             const total = subtotal + shippingCost;
+
+             document.getElementById('subtotal').textContent = formatPrice(subtotal);
+             document.getElementById('shipping-cost').textContent = formatPrice(shippingCost);
+             document.getElementById('final-amount').textContent = formatPrice(total);
+         });
+
+         // Load product info when page loads
+         document.addEventListener('DOMContentLoaded', function() {
+             const productInfo = JSON.parse(localStorage.getItem('tnl-checkout-product'));
+             if (productInfo) {
+                 // Update product details in checkout form
+                 document.getElementById('product-image').src = productInfo.image;
+                 document.getElementById('product-name').textContent = productInfo.name;
+                 document.getElementById('product-price').textContent = formatPrice(productInfo.price);
+                 
+                 // Add product info to hidden fields
+                 document.getElementById('hidden-product-id').value = productInfo.id;
+                 document.getElementById('hidden-product-price').value = productInfo.price;
+                 
+                 // Calculate and display total
+                 updateTotal(productInfo.price, productInfo.quantity || 1);
+             }
+         });
+
+         function formatPrice(price) {
+             return price.toLocaleString('vi-VN', {
+                 style: 'currency',
+                 currency: 'VND'
+             });
+         }
+
+         function updateTotal(price, quantity) {
+             const subtotal = price * quantity;
+             const shipping = 30000; // Phí vận chuyển cố định
+             const total = subtotal + shipping;
+             
+             document.getElementById('subtotal').textContent = formatPrice(subtotal);
+             document.getElementById('shipping').textContent = formatPrice(shipping);
+             document.getElementById('total').textContent = formatPrice(total);
+         }
+
+         document.addEventListener('DOMContentLoaded', function() {
+             // Load product from localStorage
+             const product = JSON.parse(localStorage.getItem('checkout-product'));
+             if (product) {
+                 // Update product details
+                 const productImage = document.querySelector('.product-image');
+                 const productName = document.querySelector('.product-name');
+                 const productPrice = document.querySelector('.product-price');
+                 
+                 if (productImage) productImage.src = '../' + product.image;
+                 if (productName) productName.textContent = product.name;
+                 if (productPrice) productPrice.textContent = formatPrice(product.price);
+
+                 // Update total
+                 updateTotal(product.price);
+             }
+         });
+
+         function formatPrice(price) {
+             return price.toLocaleString('vi-VN', {
+                 style: 'currency',
+                 currency: 'VND'
+             });
+         }
+
+         function updateTotal(price) {
+             const shipping = 30000; // Fixed shipping cost
+             const total = price + shipping;
+             
+             document.querySelector('.subtotal').textContent = formatPrice(price);
+             document.querySelector('.shipping').textContent = formatPrice(shipping);
+             document.querySelector('.total').textContent = formatPrice(total);
+         }
+     </script>
+</body>
+</html>

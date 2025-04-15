@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết Dây chuyền Nữ Hoàng Ruby - TNL High Jewelry</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ---------- BIẾN CSS & CÀI ĐẶT CHUNG (Lấy từ style.css gốc) ---------- */
+        :root {
+            /* Bảng màu HỒNG (Có thể điều chỉnh nếu cần nhấn mạnh sự sang trọng hơn) */
+            --primary-color: #FF9999; /* Hồng chính - Có thể đổi thành màu đỏ ruby (#E0115F) hoặc vàng gold nếu muốn */
+            --hover-pink: hwb(0 70% 0%);
+            --medium-pink: #FFC7C7;
+            --pastel-pink: #FFDADA;
+            --light-pink-bg: #FFECEC;
+            --lightest-pink-bg: #FFF5F5; /* Có thể đổi thành #FFFFFF (trắng) */
+
+            /* Màu tối */
+            --secondary-color: #333;
+            --text-color: #555;
+            --white: #fff;
+
+            /* Khác */
+            --font-family: 'Lato', sans-serif;
+            --heading-font: 'Playfair Display', serif;
+            --container-width: 1100px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--lightest-pink-bg); /* Nền */
+            font-size: 16px;
+            padding: 20px 0;
+        }
+
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
+
+        h1, h2, h3, h4 {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            color: var(--secondary-color);
+            line-height: 1.3;
+        }
+
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: var(--primary-color); transition: color 0.3s ease; }
+        a:hover { color: var(--hover-pink); }
+        ul { list-style: none; }
+
+        /* --- Style Nút --- */
+        .btn {
+            display: inline-block; padding: 12px 28px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: 700; text-align: center; font-size: 1em; text-transform: uppercase; letter-spacing: 0.5px;
+            font-family: var(--font-family);
+        }
+        .btn:hover { background-color: var(--hover-pink); transform: translateY(-2px); }
+        .btn:active { transform: translateY(0); }
+        .btn-primary { background-color: var(--secondary-color); color: var(--white); }
+        .btn-primary:hover { background-color: #555; }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 25px;
+        }
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+        .btn-outline i { margin-right: 8px; }
+        .btn-secondary {
+             background-color: #eee;
+             color: #555;
+             border: 1px solid #ddd;
+             padding: 8px 18px;
+             text-transform: none;
+        }
+        .btn-secondary:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        /* ---------- PRODUCT DETAIL SECTION STYLES ---------- */
+        .product-detail-section {
+            padding: 40px 0;
+            background-color: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .product-layout {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .product-image-column {
+            flex: 1 1 40%;
+            min-width: 280px;
+            text-align: center;
+        }
+
+        .product-image-column img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-info-column {
+            flex: 1 1 55%;
+            min-width: 300px;
+        }
+
+        .product-title {
+            font-family: var(--heading-font);
+            font-size: 2.4em; /* Tăng size cho sản phẩm đặc biệt */
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .product-rating-sold {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 15px;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            font-size: 0.95em;
+        }
+
+        .rating-stars {
+            color: #fadb14;
+            font-size: 1.1em;
+            white-space: nowrap;
+        }
+
+        .review-count, .sold-count { /* Có thể ẩn sold-count cho SP cao cấp */
+            color: var(--text-color);
+             white-space: nowrap;
+        }
+
+        .separator {
+            color: #ccc;
+            margin: 0 5px;
+            display: inline-block;
+        }
+
+        .product-price {
+            margin-bottom: 25px;
+            background-color: var(--light-pink-bg); /* Nền nhẹ cho phần giá */
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .price-label { /* Style cho chữ "Giá" */
+            display: block;
+            font-size: 0.9em;
+            color: var(--text-color);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .price-value { /* Style cho giá trị (hoặc chữ Liên hệ) */
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--secondary-color); /* Màu tối cho giá trị */
+        }
+
+        .product-intro {
+            font-family: var(--font-family);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            color: var(--text-color);
+        }
+
+        .product-specs h4 {
+            font-family: var(--heading-font);
+            font-size: 1.3em;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--pastel-pink);
+            padding-bottom: 5px;
+        }
+
+        .product-specs ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        .product-specs ul li {
+            font-family: var(--font-family);
+            margin-bottom: 10px; /* Tăng khoảng cách dòng */
+            padding-left: 25px; /* Tăng padding */
+            position: relative;
+            color: var(--text-color);
+            font-size: 1em; /* Tăng nhẹ size chữ specs */
+        }
+        .product-specs ul li::before {
+             content: '\f005'; /* Font Awesome star icon (hoặc \f067 plus, \f1b2 cube...) */
+             font-family: 'Font Awesome 6 Free';
+             font-weight: 900;
+             color: var(--primary-color);
+             position: absolute;
+             left: 0;
+             top: 3px;
+             font-size: 0.9em;
+        }
+
+        .product-actions-detail {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            border-top: 1px solid var(--light-pink-bg);
+            padding-top: 25px;
+        }
+
+        .product-actions-detail .btn-primary {
+             padding: 12px 28px;
+             background-color: #A30000; /* Màu đỏ ruby đậm cho nút mua */
+             border: none;
+        }
+         .product-actions-detail .btn-primary:hover {
+              background-color: #7C0000; /* Đỏ đậm hơn khi hover */
+         }
+        .product-actions-detail .btn-outline { /* Nút Thêm vào giỏ/Yêu cầu tư vấn */
+             padding: 10px 25px;
+             /* Có thể đổi màu border/text */
+             /* border-color: var(--secondary-color); */
+             /* color: var(--secondary-color); */
+        }
+        /* .product-actions-detail .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        } */
+
+
+        .product-reviews-section {
+             margin-top: 30px;
+             border-top: 1px solid var(--light-pink-bg);
+             padding-top: 25px;
+        }
+
+        .product-reviews-section h4 {
+             font-family: var(--heading-font);
+             font-size: 1.3em;
+             color: var(--secondary-color);
+             margin-bottom: 15px;
+             border-bottom: none;
+             padding-bottom: 0;
+        }
+        .product-reviews-section p {
+            font-family: var(--font-family);
+            color: var(--text-color);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .product-layout { flex-direction: column; gap: 30px; }
+            .product-image-column, .product-info-column { flex: 1 1 100%; }
+            .product-title { font-size: 2em; }
+            .price-value { font-size: 1.6em; }
+        }
+         @media (max-width: 480px) {
+             .product-actions-detail { flex-direction: column; align-items: stretch; }
+             .product-actions-detail .btn { width: 100%; }
+         }
+
+    </style>
+</head>
+<body>
+
+    <section id="product-detail-nqr" class="product-detail-section">
+        <div class="container">
+            <div class="product-layout">
+                <div class="product-image-column">
+                    <img src="../images/24.jpg" alt="Dây chuyền Nữ Hoàng Ruby và Kim cương TNL High Jewelry" id="main-product-image-nqr">
+                </div>
+
+                <div class="product-info-column">
+                    <h2 class="product-title">Dây chuyền Nữ Hoàng Ruby</h2>
+
+                    <div class="product-rating-sold">
+                        <span class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            </span>
+                        <span class="review-count">(15 đánh giá)</span>
+                         </div>
+
+                    <div class="product-price">
+                         <span class="price-label">Giá sản phẩm</span>
+                         <span class="price-value">Giá theo yêu cầu</span>
+                         </div>
+
+                    <p class="product-intro">
+                        Khẳng định đẳng cấp và quyền lực với dây chuyền 'Nữ Hoàng Ruby'. Sự kết hợp hoàn hảo giữa sắc đỏ nồng nàn của Ruby tự nhiên và ánh lửa vĩnh cửu của kim cương tinh tuyển, được chế tác tỉ mỉ trên nền vàng trắng 18k. Một kiệt tác xứng tầm dành riêng cho những nữ hoàng của đêm tiệc.
+                    </p>
+
+                    <div class="product-specs">
+                        <h4>Tuyệt tác chế tác</h4>
+                        <ul>
+                             <li>Chất liệu: Vàng trắng 18k</li>
+                            <li>Đá chính: Ruby tự nhiên </li>
+                            <li>Đá phụ: Kim cương tự nhiên tiêu chuẩn VVS</li>
+                            <li>Tổng trọng lượng Ruby : ~15 Carats</li>
+                            <li>Tổng trọng lượng Kim cương (ước lượng): ~5 Carats</li>
+                            <li>Chiều dài dây chuyền: 42cm (Có thể điều chỉnh)</li>
+                            <li>Khóa cài: Khóa hộp an toàn đính kim cương</li>
+                            <li>Giám định: Đi kèm chứng thư GIA/IGI cho các viên đá chủ</li>
+                            <li>Mã sản phẩm: TNL-NQR01</li>
+                        </ul>
+                    </div>
+
+                    <div class="product-actions-detail">
+                        <button class="btn btn-outline" onclick="thêmVàoGiỏ({
+                            id: 'NQR-01',
+                            name: 'Dây chuyền Nữ Hoàng Ruby',
+                            price: 15000000,
+                            image: '../images/24.jpg'
+                        })">
+                            <i class="fas fa-shopping-cart"></i> Thêm vào giỏ
+                        </button>
+                        <a href="../Thanh toán/TRANG THANH TOÁN.html?sanpham=NQR-01&ten=Dây+chuyền+Nữ+Hoàng+Ruby&gia=15000000&hinh=../images/24.jpg" 
+                           class="btn btn-primary">
+                            Mua Ngay
+                        </a>
+                    </div>
+
+                    <div class="product-reviews-section">
+                         <h4>Đánh giá từ khách hàng</h4>
+                         <p>Khám phá sự hài lòng tuyệt đối từ những chủ nhân của kiệt tác này.</p>
+                         <div id="product-reviews-placeholder-nqr">
+                             <div class="review-item" style="border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 10px;">
+                                 <div class="review-rating">★★★★★</div>
+                                 <div class="review-author"><strong>Quý bà Hoàng Lan</strong> - <span style="font-size: 0.8em; color: #888;">01/03/2025</span></div>
+                                 <p class="review-text" style="margin-top: 5px; font-style: normal;">Không lời nào diễn tả hết vẻ đẹp của chiếc dây chuyền. Rất xứng đáng!</p>
+                             </div>
+                         </div>
+                         <a href="#leave-review" class="btn btn-secondary">Chia sẻ cảm nhận của bạn</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ========== PRODUCT DETAIL PAGE LOGIC (Nữ Hoàng Ruby) ==========
+
+            // ★★★ Đảm bảo ID các nút này là duy nhất ★★★
+            const addToCartButtonNQR = document.getElementById('add-to-cart-nqr');
+            const buyNowButtonNQR = document.getElementById('buy-now-nqr');
+            // const requestConsultButtonNQR = document.getElementById('request-consult-nqr'); // Nếu dùng nút tư vấn
+
+            // --- Xử lý nút "Thêm vào giỏ" ---
+            if (addToCartButtonNQR) {
+                addToCartButtonNQR.addEventListener('click', () => {
+                    const productId = 'TNL-NQR01'; // ID sản phẩm ví dụ
+                    const productName = 'Dây chuyền Nữ Hoàng Ruby';
+                    const quantity = 1;
+
+                    console.log(`Đã thêm vào giỏ: ${quantity} x ${productName} (ID: ${productId})`);
+                    // ★★★ Logic thêm vào giỏ hàng/wishlist thực tế ★★★
+                    alert(`${productName} đã được thêm vào giỏ hàng!`);
+                    // Có thể chuyển thành alert('Đã thêm vào danh sách yêu thích!')
+                });
+            }
+
+             // --- (Ví dụ) Xử lý nút "Yêu cầu tư vấn" ---
+            /*
+            if (requestConsultButtonNQR) {
+                requestConsultButtonNQR.addEventListener('click', () => {
+                     const productId = 'TNL-NQR01';
+                     const productName = 'Dây chuyền Nữ Hoàng Ruby';
+                     console.log(`Yêu cầu tư vấn cho: ${productName} (ID: ${productId})`);
+                     // ★★★ Logic mở form liên hệ hoặc chuyển trang liên hệ ★★★
+                     alert(`Cảm ơn bạn đã quan tâm đến ${productName}! Chuyên viên tư vấn của TNL sẽ sớm liên hệ lại.`);
+                     // window.location.href = '/lien-he?product=' + productId;
+                });
+            }
+            */
+
+            // --- Xử lý nút "Mua Ngay" ---
+            if (buyNowButtonNQR) {
+                buyNowButtonNQR.addEventListener('click', () => {
+                    const productId = 'TNL-NQR01';
+                    const productName = 'Dây chuyền Nữ Hoàng Ruby';
+                    const quantity = 1;
+
+                    console.log(`Mua ngay: ${quantity} x ${productName} (ID: ${productId})`);
+                    // ★★★ Logic chuyển đến trang thanh toán/liên hệ đặt hàng riêng cho sản phẩm cao cấp ★★★
+                    alert(`Chuẩn bị quy trình đặt hàng cho ${productName}! Chuyên viên sẽ liên hệ xác nhận.`);
+                    // Thường sẽ không chuyển thẳng đến checkout mà có thể là form đặt hàng riêng hoặc trang liên hệ
+                    // window.location.href = '/dat-hang-dac-biet?product=' + productId;
+                });
+            }
+
+        }); // End DOMContentLoaded
+    </script>
+
+</body>
+</html>

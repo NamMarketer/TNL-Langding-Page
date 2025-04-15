@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thương Hiệu Trang Sức TNL - Phong Cách & Đẳng Cấp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-container">
+            <nav class="main-nav main-nav-left" id="main-nav-left">
+                <ul>
+                    <li><a href="#product-showcase">Sản Phẩm</a></li>
+                    <li><a href="#benefits">Lợi Ích</a></li>
+                </ul>
+            </nav>
+
+            <div class="logo">
+                <a href="#hero">
+                    <img src="images/9-Photoroom.png" alt="Logo Thương Hiệu TNL" onerror="this.onerror=null; this.src='https://placehold.co/150x75/FFECEC/333?text=TNL+Logo';">
+                </a>
+            </div>
+
+            <nav class="main-nav main-nav-right" id="main-nav-right">
+                <ul>
+                    <li><a href="#testimonials">Phản Hồi</a></li>
+                    <li><a href="#discount-offer">Ưu Đãi</a></li>
+                    <li><a href="#footer">Liên Hệ</a></li> </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                    <div class="header-cart-items">
+                        <!-- Cart items will be inserted here by JavaScript -->
+                    </div>
+                </div>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <nav class="main-nav mobile-nav" id="mobile-nav">
+                 <ul>
+                     <li><a href="#product-showcase">Sản phẩm</a></li>
+                     <li><a href="#benefits">Lợi ích</a></li>
+                     <li><a href="#certifications">Chứng nhận</a></li>
+                     <li><a href="#brand-story">Câu chuyện</a></li>
+                     <li><a href="#testimonials">Phản hồi</a></li>
+                     <li><a href="#discount-offer">Ưu đãi</a></li>
+                     <li><a href="#footer">Liên hệ</a></li>
+                 </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal-overlay">
+        <div class="cart-modal">
+            <div class="cart-modal-header">
+                <h3>Giỏ hàng</h3>
+                <button class="cart-close-btn">&times;</button>
+            </div>
+            <div class="cart-modal-items">
+                <!-- Cart items will be inserted here -->
+            </div>
+            <div class="cart-modal-footer">
+                <div class="cart-modal-total-row">
+                    <span>Tổng cộng:</span>
+                    <span class="cart-modal-total">0₫</span>
+                </div>
+                <button class="cart-modal-checkout" onclick="proceedToCheckout()">
+                    Thanh toán
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <section id="hero" class="hero-section-updated hero-layout-video-right">
+        <div class="container hero-layout-container">
+
+            <div class="hero-content-left">
+                <h1 class="brand-value">Khẳng định phong cách,<br> nâng tầm đẳng cấp cùng Trang sức TNL.</h1>
+                <p class="hero-description">Khám phá bộ sưu tập độc đáo, tinh xảo dành riêng cho bạn.</p>
+                <a href="#product-showcase" id="hero-cta-button" class="btn hero-cta-btn">Xem Bộ Sưu Tập</a>
+            </div>
+
+             <div class="hero-video-right">
+                <video autoplay loop muted playsinline poster="https://placehold.co/800x500/FFECEC/333?text=TNL+Video+Poster">
+                    <source src="images/Backround-TNJ.mp4" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ thẻ video.
+                </video>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="product-showcase" class="product-showcase">
+        <div class="container">
+            <h2>Sản Phẩm Nổi Bật</h2>
+
+            <div class="slider-wrapper">
+                <div class="slider-container">
+                    <div class="slider">
+                        <div class="product-item"
+                        data-product-name="Nhẫn Ánh Sao Hội Tụ"
+                        data-product-image="images/23.jpg"
+                        data-product-price="1500000"> <h3>Nhẫn Ánh Sao Hội Tụ</h3>
+                       <img src="images/23.jpg" alt="Nhẫn Ánh Sao Hội Tụ" onerror="this.onerror=null; this.src='https://placehold.co/400x280/FFC7C7/333?text=Nhẫn+TNL';">
+                       <div class="product-actions">
+                           <a href="Bài viết liên quan/Nhẫn Ánh Sao Hội Tụ.html" class="btn">Xem Chi Tiết</a>
+                           <button class="btn btn-buy" onclick="muaNgay({
+                               id: 'NAST-01',
+                               name: 'Nhẫn Ánh Sao Hội Tụ',
+                               price: 6500000,
+                               image: 'images/23.jpg'
+                           })">Mua Ngay</button>
+                       </div>
+                   </div>
+                   
+                   <div class="product-item"
+                        data-product-name="Dây chuyền Nữ hoàng Ruby"
+                        data-product-image="images/24.jpg"
+                        data-product-price="2800000"> <h3>Dây chuyền Nữ hoàng Ruby</h3>
+                       <img src="images/24.jpg" alt="Dây chuyền Nữ hoàng Ruby" onerror="this.onerror=null; this.src='https://placehold.co/400x280/FFC7C7/333?text=Dây+Chuyền+TNL';">
+                       <div class="product-actions">
+                           <a href="Bài viết liên quan/Nữ hoàng Ruby.html" class="btn">Xem Chi Tiết</a>
+                           <button class="btn btn-buy">Mua Ngay</button>
+                       </div>
+                   </div>
+                   
+                   <div class="product-item"
+                        data-product-name="Vòng Tay Tâm Điểm Hồng"
+                        data-product-image="images/26.jpg"
+                        data-product-price="1950000"> <h3>Vòng Tay Tâm Điểm Hồng</h3>
+                       <img src="images/26.jpg" alt="Vòng Tay Tâm Điểm Hồng" onerror="this.onerror=null; this.src='https://placehold.co/400x280/FFC7C7/333?text=Vòng+Tay+TNL';">
+                       <div class="product-actions">
+                           <a href="Bài viết liên quan/Vòng Tay Tâm Điểm Hồng.html" class="btn">Xem Chi Tiết</a>
+                           <button class="btn btn-buy">Mua Ngay</button>
+                       </div>
+                   </div>
+                        </div>
+                        </div> </div> <button class="slider-btn prev-btn" aria-label="Previous Slide"><i class="fas fa-chevron-left"></i></button>
+                <button class="slider-btn next-btn" aria-label="Next Slide"><i class="fas fa-chevron-right"></i></button>
+            </div> <div class="other-products-section">
+                <h3>Khám Phá Thêm</h3>
+                <div class="other-products-list">
+                    <div class="other-product-item">
+                         <img src="images/10.jpg" alt="Dây chuyền hồng ngọc" onerror="this.onerror=null; this.src='https://placehold.co/200x180/FFDADA/333?text=SP+Khác+1';">
+                        <h4>Dây chuyền hồng ngọc</h4>
+                        <a href="Bài viết liên quan/Dây chuyển hồng ngọc.html" class="btn btn-small">Xem Ngay</a>
+                    </div>
+                    <div class="other-product-item">
+                         <img src="images/16.jpg" alt="Nhẫn Ánh Sao Hội Tụ Khác" onerror="this.onerror=null; this.src='https://placehold.co/200x180/FFDADA/333?text=SP+Khác+2';">
+                        <h4>Nhẫn Ánh Sao Hội Tụ</h4>
+                        <a href="Bài viết liên quan/Nhẫn Ánh Sao Hội Tụ.html" class="btn btn-small">Xem Ngay</a>
+                    </div>
+                    <div class="other-product-item">
+                         <img src="images/14.jpg" alt="VKH (Vòng Kết Hồng)" onerror="this.onerror=null; this.src='https://placehold.co/200x180/FFDADA/333?text=SP+Khác+3';">
+                        <h4>VKH (Vòng Kết Hồng)</h4>
+                        <a href="Bài viết liên quan/VKH (Vòng Kết Hồng).html" class="btn btn-small">Xem Ngay</a>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits-section">
+        <div class="container">
+             <h2>Tại Sao Chọn Trang Sức TNL?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-gem benefit-icon"></i>
+                    <h4>Chất Lượng Vượt Trội</h4>
+                    <p>Chế tác từ vật liệu cao cấp, kiểm định nghiêm ngặt.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-pencil-ruler benefit-icon"></i>
+                    <h4>Thiết Kế Độc Đáo</h4>
+                    <p>Cập nhật xu hướng, tạo ra mẫu mã tinh tế, khác biệt.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-headset benefit-icon"></i>
+                    <h4>Dịch Vụ Tận Tâm</h4>
+                    <p>Hỗ trợ chu đáo, chính sách bảo hành & đổi trả linh hoạt.</p>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-shield-alt benefit-icon"></i>
+                    <h4>Giá Trị Bền Vững</h4>
+                    <p>Cam kết nguồn gốc rõ ràng, phát triển bền vững.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <h2>Chứng Nhận Chất Lượng</h2>
+            <div class="certificate-showcase">
+                <div class="certificate-image">
+                     <img src="images/chứng nhận sp.jpg" alt="Phiếu Kết Quả Thử Nghiệm Vàng TNL tại DojiLab" onerror="this.onerror=null; this.src='https://placehold.co/400x500/FFECEC/333?text=Chứng+Nhận';">
+                </div>
+                <div class="certificate-details">
+                    <h3><i class="fas fa-award"></i> Đảm Bảo Vàng Thật - Kiểm Định Bởi DojiLab</h3>
+                    <ul class="certification-points">
+                        <li>
+                            <i class="fas fa-stamp"></i>
+                            <div><strong>Kiểm Định DojiLab Uy Tín:</strong> Phiếu kiểm định từ đơn vị hàng đầu Việt Nam xác nhận nguồn gốc sản phẩm TNL.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-balance-scale"></i>
+                            <div><strong>Chuẩn Vàng 18K (75% Au):</strong> Hàm lượng vàng được xác định chính xác theo quy trình TCVN 7055:2014.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-microscope"></i>
+                            <div><strong>Hợp Kim An Toàn & Minh Bạch:</strong> Thành phần rõ ràng, không chứa tạp chất độc hại, đảm bảo an toàn khi sử dụng.</div>
+                        </li>
+                        <li>
+                            <i class="fas fa-shield-alt"></i>
+                            <div><strong>An Tâm Về Giá Trị:</strong> Cam kết chất lượng vàng thật, mang đến sự tin tưởng tuyệt đối và giá trị đích thực cho bạn.</div>
+                        </li>
+                    </ul>
+                    <a href="#product-showcase" class="btn btn-primary btn-cert">Khám Phá Sản Phẩm</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>Phản Hồi Tích Cực Từ Khách Hàng</h2>
+            <div class="satisfaction-summary">
+                <div class="satisfaction-chart-container">
+                    <div class="satisfaction-chart" role="progressbar" aria-valuenow="93" aria-valuemin="0" aria-valuemax="100" style="--value: 93;">
+                        <div class="chart-inner">
+                            <span class="percentage-value">93%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="satisfaction-text">
+                    <h4>Tỷ Lệ Hài Lòng Vượt Trội</h4>
+                    <p>Chúng tôi tự hào khi <strong>93%</strong> khách hàng đã mua và trải nghiệm đều phản hồi rất tích cực về chất lượng sản phẩm và dịch vụ chu đáo từ TNL.</p>
+                </div>
+             </div>
+
+            <div class="testimonial-item featured-testimonial">
+                 <div class="testimonial-author-img">
+                     <img src="images/Thảo.png" alt="Ảnh khách hàng Lan Anh" onerror="this.onerror=null; this.src='https://placehold.co/80x80/CCCCCC/333?text=Ảnh';">
+                 </div>
+                 <div class="testimonial-content">
+                    <blockquote>"Sản phẩm tuyệt vời, chất lượng vượt trội và dịch vụ khách hàng rất tốt!"</blockquote>
+                    <p class="author">- Chị Lan Anh, TP.HCM</p>
+                 </div>
+            </div>
+
+            <div class="testimonial-item featured-testimonial">
+                 <div class="testimonial-author-img">
+                     <img src="images/Lâm.png" alt="Ảnh khách hàng Minh Quân" onerror="this.onerror=null; this.src='https://placehold.co/80x80/CCCCCC/333?text=Ảnh';">
+                 </div>
+                 <div class="testimonial-content">
+                    <blockquote>"Tôi rất hài lòng với mẫu mã và độ tinh xảo của trang sức."</blockquote>
+                    <p class="author">- Anh Minh Quân, Hà Nội</p>
+                 </div>
+            </div>
+            </div>
+    </section>
+
+    <section id="discount-offer" class="discount-offer">
+        <div class="container">
+            <h2>Ưu Đãi Đặc Biệt - Giảm Ngay 20%!</h2>
+            <p>Đăng ký nhận tin để không bỏ lỡ bộ sưu tập mới và nhận ngay mã giảm giá 20% cho đơn hàng đầu tiên!</p>
+            <div class="countdown-timer-container">
+                 <div id="countdown-timer-display">
+                     <p>Ưu đãi kết thúc sau:</p>
+                     <div id="countdown-timer">
+                         <span id="hours">00</span> :
+                         <span id="minutes">00</span> :
+                         <span id="seconds">00</span>
+                     </div>
+                 </div>
+            </div>
+            <form id="myForm">
+                <label for="name">Tên:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <label for="phone">Số điện thoại:</label><br>
+                <input type="tel" id="phone" name="phone" required><br><br>
+                <button type="submit">Nhận tư vấn ngay</button>
+            </form>
+              
+              <p class="form-note">Chỉ còn <strong><span id="hours-left">12</span> giờ</strong> nữa!</p>
+        </div>
+    </section>
+
+    <section id="brand-story" class="brand-story">
+        <div class="container">
+            <h2>Câu Chuyện Thương Hiệu</h2>
+            <div class="brand-story-content">
+                <div class="brand-story-image">
+                    <img src="images/ảnh nhóm.jpg" alt="Hình ảnh minh họa câu chuyện thương hiệu TNL" onerror="this.onerror=null; this.src='https://placehold.co/400x350/CCCCCC/333?text=Ảnh+Câu+Chuyện';">
+                </div>
+                <div class="brand-story-text">
+                    <p>Tại Thương Hiệu TNL, chúng tôi tin rằng mỗi món trang sức không chỉ là vật phẩm, mà còn là một câu chuyện, một biểu tượng của phong cách và cá tính. Mỗi thiết kế đều chứa đựng tâm huyết và sự tỉ mỉ, tôn vinh vẻ đẹp độc bản của người sở hữu.</p>
+                    <p>Chúng tôi bắt đầu với niềm đam mê chế tác những món trang sức vượt thời gian, sử dụng vật liệu cao cấp và kỹ thuật tinh xảo. TNL cam kết mang đến những sản phẩm không chỉ đẹp về hình thức mà còn bền vững về giá trị, đồng hành cùng bạn trên mọi hành trình.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-contact">
+                <h4>Thông Tin Liên Hệ</h4>
+                 <p><i class="fas fa-map-marker-alt footer-icon"></i> Thành phố Biên Hòa, Tỉnh Đồng Nai</p>
+                 <p><i class="fas fa-phone-alt footer-icon"></i> <a href="tel:+84123456789">0123 456 789</a></p>
+                 <p><i class="fas fa-envelope footer-icon"></i> <a href="mailto:TNL@gmail.com">TNL@gmail.com</a></p>
+            </div>
+            <div class="footer-customer-service">
+                <h4>Dịch Vụ Khách Hàng</h4>
+                <ul>
+                    <li><a href="Hỗ trợ khách hàng/Hướng dẫn mua hàng.html">Hướng dẫn mua hàng</a></li>
+                    <li><a href="Hỗ trợ khách hàng/Câu hỏi thường gặp.html">Câu hỏi thường gặp</a></li>
+                    <li><a href="Hỗ trợ khách hàng/Hỗ trợ trực tuyến.html">Hỗ trợ trực tuyến</a></li>
+                </ul>
+            </div>
+            <div class="footer-policy">
+                <h4>Chính Sách</h4>
+                <ul>
+                    <li><a href="Chính sách/CHÍNH SÁCH BẢO HÀNH.html">Chính sách bảo hành</a></li>
+                    <li><a href="Chính sách/Đổi trả.html">Chính sách đổi trả</a></li>
+                    <li><a href="Chính sách/CHÍNH SÁCH BẢO MẬT THÔNG TIN.html">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-payment">
+                <h4>Phương Thức Thanh Toán</h4>
+                 <img src="images/visa.png" alt="Visa" title="Visa" onerror="this.onerror=null; this.src='https://placehold.co/50x30/eee/333?text=Visa';">
+                 <img src="images/Mater card.jpg" alt="Mastercard" title="Mastercard" onerror="this.onerror=null; this.src='https://placehold.co/50x30/eee/333?text=MC';">
+                 <img src="images/Momo.png" alt="MoMo" title="MoMo" onerror="this.onerror=null; this.src='https://placehold.co/50x30/eee/333?text=Momo';">
+                 <p style="margin-top: 5px;">An toàn, bảo mật</p>
+            </div>
+            <div class="footer-social">
+                <h4>Kết Nối Với Chúng Tôi</h4>
+                <a href="https://www.facebook.com/profile.php?id=61575534922299" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/0001_tnl/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@vn.tnl25.1504" target="_blank" rel="noopener noreferrer" aria-label="Tiktok" title="Tiktok"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+             <p>© <span id="current-year">2025</span> Thương Hiệu TNL. Bảo lưu mọi quyền.</p>
+        </div>
+    </footer>
+
+    <div id="chat-box" class="chat-box">
+        <button id="chat-toggle" aria-label="Mở chat">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+        <div class="chat-window" id="chat-window">
+            <div class="chat-header">
+                Hỗ trợ trực tuyến
+                <button id="close-chat" aria-label="Đóng chat"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="chat-body">
+                 <p>Chào bạn! TNL có thể giúp gì cho bạn?</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Nhập tin nhắn...">
+                <button aria-label="Gửi"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
