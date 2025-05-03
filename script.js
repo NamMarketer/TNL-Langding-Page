@@ -1116,35 +1116,35 @@ const products = [
         id: 'DCNHR-01',
         name: 'Dây chuyền Nữ hoàng Ruby',
         price: 2800000,
-        image: '../images/day-chuyen-nu-hoang-ruby.jpg.jpg',
+        image: 'images/day-chuyen-nu-hoang-ruby.jpg.jpg',
         url: 'Bài viết liên quan/Dây chuyền Nữ Hoàng Ruby.html'
     },
     {
         id: 'VTTDH-01',
         name: 'Vòng Tay Tâm Điểm Hồng',
         price: 1950000,
-        image: '../images/vong-tay-tam-diem-hong.jpg.jpg',
+        image: 'images/vong-tay-tam-diem-hong.jpg.jpg',
         url: 'Bài viết liên quan/Vòng Tay Tâm Điểm Hồng.html'
     },
     {
         id: 'DCHN-01',
         name: 'Dây chuyền hồng ngọc',
         price: 2500000,
-        image: '../images/day-chuyen-hong-ngoc.jpg',
+        image: 'images/day-chuyen-hong-ngoc.jpg',
         url: 'Bài viết liên quan/Dây chuyển hồng ngọc.html'
     },
     {
         id: 'NAS-01',
         name: 'Nhẫn Ánh Sao',
         price: 5500000,
-        image: '../images/nhan-anh-sao.jpg.jpg',
+        image: 'images/nhan-anh-sao.jpg.jpg',
         url: 'Bài viết liên quan/Nhẫn.html'
     },
     {
         id: 'VKH-01',
         name: 'Vòng Kết Hồng',
         price: 1800000,
-        image: '../images/vong-ket-hong.jpg.jpg',
+        image: 'images/vong-ket-hong.jpg.jpg',
         url: 'Bài viết liên quan/VKH (Vòng Kết Hồng).html'
     }
 ];
