@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng - TNL Jewelry</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FF9999;
+            --hover-pink: #FFB3B3;
+            --medium-pink: #FFC7C7;
+            --pastel-pink: #FFDADA;
+            --light-pink-bg: #FFECEC;
+            --secondary-color: #333;
+            --text-color: #555;
+            --white: #fff;
+            --font-family: 'Lato', sans-serif;
+            --heading-font: 'Playfair Display', serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--light-pink-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .cart-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .cart-header {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cart-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--medium-pink));
+        }
+
+        .cart-header h1 {
+            font-family: var(--heading-font);
+            color: var(--secondary-color);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .select-all-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 20px;
+            background: var(--light-pink-bg);
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .custom-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary-color);
+            border-radius: 4px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .custom-checkbox.checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .cart-items {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 120px 2fr 1fr 1fr 50px;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            border-bottom: 1px solid var(--pastel-pink);
+            position: relative;
+        }
+
+        .cart-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .item-checkbox {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .item-details h3 {
+            font-family: var(--heading-font);
+            color: var (--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-btn {
+            background: var(--light-pink-bg);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background: var(--pastel-pink);
+        }
+
+        .quantity-display {
+            width: 40px;
+            text-align: center;
+        }
+
+        .remove-item {
+            color: #ff4444;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        .remove-item:hover {
+            color: #cc0000;
+        }
+
+        .cart-summary {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .discount-section {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: var(--light-pink-bg);
+            border-radius: 8px;
+        }
+
+        .discount-input {
+            display: flex;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .discount-input input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid var(--pastel-pink);
+            border-radius: 4px;
+        }
+
+        .apply-discount {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .summary-total {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--secondary-color);
+            border-top: 2px solid var(--pastel-pink);
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .btn-continue {
+            background: var(--light-pink-bg);
+            color: var(--secondary-color);
+        }
+
+        .btn-checkout {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .empty-cart i {
+            font-size: 4em;
+            color: var(--pastel-pink);
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .cart-item {
+                grid-template-columns: 100px 1fr;
+                gap: 15px;
+            }
+
+            .cart-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Enhanced Checkbox Styles */
+        .custom-checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--pastel-pink);
+            border-radius: 6px;
+            cursor: pointer;
+            position: relative;
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+
+        .custom-checkbox:hover {
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .custom-checkbox.checked {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .custom-checkbox.checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+        }
+
+        /* Item Checkbox Position & Style */
+        .item-checkbox {
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .cart-item {
+            padding-left: 35px; /* Make space for checkbox */
+            position: relative;
+            transition: background-color 0.2s ease;
+        }
+
+        .cart-item.selected {
+            background-color: var(--light-pink-bg);
+        }
+
+        /* Select All Container Enhancement */
+        .select-all-container {
+            background: var(--white);
+            border: 1px solid var(--pastel-pink);
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .select-all-container label {
+            font-weight: 500;
+            color: var(--secondary-color);
+            cursor: pointer;
+        }
+
+        .select-all-container:hover {
+            border-color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <div class="cart-header">
+            <h1>Giỏ hàng của bạn</h1>
+            <p id="cart-count">0 sản phẩm</p>
+        </div>
+
+        <div class="select-all-container">
+            <div class="checkbox-wrapper">
+                <div class="custom-checkbox" id="select-all" onclick="toggleSelectAll()"></div>
+                <label>Chọn tất cả</label>
+            </div>
+        </div>
+
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be dynamically inserted here -->
+        </div>
+
+        <div class="cart-summary">
+            <div class="discount-section">
+                <h3>Mã giảm giá</h3>
+                <div class="discount-input">
+                    <input type="text" id="discount-code" placeholder="Nhập mã giảm giá">
+                    <button class="apply-discount" onclick="applyDiscount()">Áp dụng</button>
+                </div>
+            </div>
+            
+            <div class="summary-item">
+                <span>Tạm tính:</span>
+                <span id="subtotal">0₫</span>
+            </div>
+            <div class="summary-item">
+                <span>Giảm giá:</span>
+                <span id="discount">0₫</span>
+            </div>
+            <div class="summary-item summary-total">
+                <span>Tổng cộng:</span>
+                <span id="total">0₫</span>
+            </div>
+        </div>
+
+        <div class="cart-actions">
+            <button class="btn btn-continue" onclick="window.location.href='../index.html'">
+                <i class="fas fa-arrow-left"></i> Tiếp tục mua sắm
+            </button>
+            <button class="btn btn-checkout" onclick="proceedToCheckout()">
+                Thanh toán <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function formatPrice(price) {
+            return new Intl.NumberFormat('vi-VN', {
+                style: 'currency',
+                currency: 'VND'
+            }).format(price).replace('₫', '') + '₫';
+        }
+
+        function updateCart() {
+            const cartItems = JSON.parse(localStorage.getItem('tnl-cart')) || [];
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartCount = document.getElementById('cart-count');
+
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h2>Giỏ hàng trống</h2>
+                        <p>Hãy thêm sản phẩm vào giỏ hàng của bạn</p>
+                    </div>
+                `;
+                return;
+            }
+
+            cartCount.textContent = `${cartItems.length} sản phẩm`;
+            
+            cartItemsContainer.innerHTML = cartItems.map(item => `
+                <div class="cart-item" data-id="${item.id}">
+                    <div class="custom-checkbox item-checkbox" onclick="toggleItemSelection('${item.id}')"></div>
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="item-details">
+                        <h3>${item.name}</h3>
+                        <p class="item-price">${formatPrice(item.price)}</p>
+                    </div>
+                    <div class="quantity-controls">
+                        <button class="quantity-btn" onclick="updateQuantity('${item.id}', -1)">-</button>
+                        <span class="quantity-display">${item.quantity}</span>
+                        <button class="quantity-btn" onclick="updateQuantity('${item.id}', 1)">+</button>
+                    </div>
+                    <div class="item-total">
+                        ${formatPrice(item.price * item.quantity)}
+                    </div>
+                    <button class="remove-item" onclick="removeItem('${item.id}')">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+
+            updateTotals();
+        }
+
+        function updateQuantity(productId, change) {
+            const cart = JSON.parse(localStorage.getItem('tnl-cart')) || [];
+            const itemIndex = cart.findIndex(item => item.id === productId);
+            
+            if (itemIndex > -1) {
+                cart[itemIndex].quantity = Math.max(1, cart[itemIndex].quantity + change);
+                localStorage.setItem('tnl-cart', JSON.stringify(cart));
+                updateCart();
+            }
+        }
+
+        function removeItem(productId) {
+            const cart = JSON.parse(localStorage.getItem('tnl-cart')) || [];
+            const updatedCart = cart.filter(item => item.id !== productId);
+            localStorage.setItem('tnl-cart', JSON.stringify(updatedCart));
+            updateCart();
+        }
+
+        function updateTotals(discountRate = 0) {
+            const cart = JSON.parse(localStorage.getItem('tnl-cart')) || [];
+            const selectedItems = cart.filter(item => {
+                const itemElement = document.querySelector(`.cart-item[data-id="${item.id}"]`);
+                return itemElement && itemElement.querySelector('.custom-checkbox').classList.contains('checked');
+            });
+            const subtotal = selectedItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const discount = subtotal * discountRate;
+            const total = subtotal - discount;
+
+            document.getElementById('subtotal').textContent = formatPrice(subtotal);
+            document.getElementById('discount').textContent = formatPrice(discount);
+            document.getElementById('total').textContent = formatPrice(total);
+        }
+
+        function toggleSelectAll() {
+            const selectAllCheckbox = document.getElementById('select-all');
+            const isChecked = selectAllCheckbox.classList.toggle('checked');
+            
+            const items = document.querySelectorAll('.cart-item');
+            items.forEach(item => {
+                const checkbox = item.querySelector('.custom-checkbox');
+                if (isChecked) {
+                    checkbox.classList.add('checked');
+                } else {
+                    checkbox.classList.remove('checked');
+                }
+                item.classList.toggle('selected', isChecked); // Add/remove selected class
+            });
+            
+            updateTotals();
+        }
+
+        function toggleItemSelection(itemId) {
+            const item = document.querySelector(`.cart-item[data-id="${itemId}"]`);
+            const checkbox = item.querySelector('.custom-checkbox');
+            checkbox.classList.toggle('checked');
+            item.classList.toggle('selected'); // Add/remove selected class
+            updateTotals();
+            
+            // Update select all checkbox state
+            updateSelectAllState();
+        }
+
+        function updateSelectAllState() {
+            const allCheckboxes = document.querySelectorAll('.cart-item .custom-checkbox');
+            const selectAllCheckbox = document.getElementById('select-all');
+            const allChecked = Array.from(allCheckboxes).every(checkbox => 
+                checkbox.classList.contains('checked'));
+            
+            if (allChecked) {
+                selectAllCheckbox.classList.add('checked');
+            } else {
+                selectAllCheckbox.classList.remove('checked');
+            }
+        }
+
+        function applyDiscount() {
+            const code = document.getElementById('discount-code').value.toUpperCase();
+            // Thêm logic mã giảm giá tại đây
+            const discountCodes = {
+                'SALE10': 0.1,
+                'SALE20': 0.2,
+                'SALE30': 0.3
+            };
+
+            const discountRate = discountCodes[code] || 0;
+            if (discountRate) {
+                alert(`Áp dụng mã giảm giá ${discountRate * 100}% thành công!`);
+            } else {
+                alert('Mã giảm giá không hợp lệ!');
+            }
+            
+            updateTotals(discountRate);
+        }
+
+        function proceedToCheckout() {
+            const selectedItems = getSelectedItems();
+            
+            if (selectedItems.length === 0) {
+                alert('Vui lòng chọn ít nhất một sản phẩm để thanh toán!');
+                return;
+            }
+        
+            const subtotal = calculateSelectedTotal();
+            const discountElement = document.getElementById('discount');
+            const discount = parseInt(discountElement.textContent.replace(/[^\d]/g, '')) || 0;
+        
+            // Lưu thông tin thanh toán với đầy đủ chi tiết sản phẩm
+            const checkoutData = {
+                items: selectedItems.map(item => ({
+                    id: item.id,
+                    name: item.name,
+                    price: item.price,
+                    image: item.image,
+                    quantity: item.quantity,
+                    itemTotal: item.price * item.quantity
+                })),
+                totals: {
+                    subtotal: subtotal,
+                    discount: discount,
+                    total: subtotal - discount
+                }
+            };
+        
+            // Lưu vào localStorage
+            localStorage.setItem('checkout-items', JSON.stringify(checkoutData));
+            
+            // Chuyển hướng đến trang thanh toán
+            window.location.href = 'TRANG THANH TOÁN.html';
+        }
+        
+        function getSelectedItems() {
+            const cart = JSON.parse(localStorage.getItem('tnl-cart')) || [];
+            return cart.filter(item => {
+                const itemElement = document.querySelector(`.cart-item[data-id="${item.id}"]`);
+                return itemElement && itemElement.querySelector('.custom-checkbox').classList.contains('checked');
+            });
+        }
+        
+        function calculateSelectedTotal() {
+            const selectedItems = getSelectedItems();
+            return selectedItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        }
+
+        // Initialize cart on page load
+        document.addEventListener('DOMContentLoaded', updateCart);
+    </script>
+</body>
+</html>

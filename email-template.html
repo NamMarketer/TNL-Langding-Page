@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #FFF5F5;
+        }
+        .email-header {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px 10px 0 0;
+        }
+        .email-header img {
+            max-width: 150px;
+            height: auto;
+        }
+        .email-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .welcome-text {
+            font-size: 24px;
+            color: #FF9999;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .discount-box {
+            background-color: #FFF5F5;
+            border: 2px dashed #FF9999;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .discount-code {
+            font-size: 32px;
+            color: #FF9999;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin: 10px 0;
+        }
+        .benefits {
+            margin: 20px 0;
+        }
+        .benefit-item {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        .benefit-item:before {
+            content: '♥';
+            color: #FF9999;
+            position: absolute;
+            left: 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            color: #666;
+        }
+        .social-links {
+            margin: 20px 0;
+        }
+        .social-links a {
+            margin: 0 10px;
+            color: #FF9999;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <img src="[LOGO_URL]" alt="TNL Logo">
+        </div>
+        <div class="email-content">
+            <div class="welcome-text">
+                Xin chào {{name}}!
+            </div>
+            
+            <p>Cảm ơn bạn đã đăng ký nhận thông tin từ TNL. Chúng tôi rất vui được chào đón bạn!</p>
+
+            <div class="discount-box">
+                <p>Mã giảm giá đặc biệt dành cho bạn:</p>
+                <div class="discount-code">{{discountCode}}</div>
+                <p>Giảm 20% cho đơn hàng đầu tiên</p>
+            </div>
+
+            <div class="benefits">
+                <p><strong>Ưu đãi của bạn bao gồm:</strong></p>
+                <div class="benefit-item">Giảm 20% cho đơn hàng đầu tiên</div>
+                <div class="benefit-item">Miễn phí giao hàng toàn quốc</div>
+                <div class="benefit-item">Tư vấn thiết kế miễn phí</div>
+                <div class="benefit-item">Bảo hành trọn đời sản phẩm</div>
+            </div>
+
+            <p>Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất để tư vấn chi tiết!</p>
+            
+            <p>Trân trọng,<br>Đội ngũ TNL</p>
+        </div>
+        
+        <div class="footer">
+            <div class="social-links">
+                <a href="https://facebook.com/tnl">Facebook</a> |
+                <a href="https://instagram.com/tnl">Instagram</a> |
+                <a href="https://tiktok.com/@tnl">TikTok</a>
+            </div>
+            <p>© 2024 TNL. All rights reserved.</p>
+            <p>Địa chỉ: Thành phố Biên Hòa, Tỉnh Đồng Nai</p>
+            <p>Email: TNL@gmail.com | Hotline: 0123 456 789</p>
+        </div>
+    </div>
+</body>
+</html>

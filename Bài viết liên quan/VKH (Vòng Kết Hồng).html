@@ -3,27 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi tiết Vòng Tay VKH (Vòng Kết Hồng) - TNL Jewelry</title>
+    <title>Chi tiết Vòng Kết Hồng - TNL Jewelry</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* ---------- BIẾN CSS & CÀI ĐẶT CHUNG ---------- */
+        /* ---------- BIẾN CSS & CÀI ĐẶT CHUNG (Lấy từ style.css gốc) ---------- */
         :root {
-            --primary-color: #FF9999;
-            --hover-pink: hwb(0 70% 0%);
-            --medium-pink: #FFC7C7;
-            --pastel-pink: #FFDADA;
-            --light-pink-bg: #FFECEC;
-            --lightest-pink-bg: #FFF5F5;
-            --secondary-color: #333;
-            --text-color: #555;
+            /* Bảng màu HỒNG */
+            --primary-color: #FF9999; /* Hồng chính */
+            --hover-pink: hwb(0 70% 0%); /* Hồng hover */
+            --medium-pink: #FFC7C7; /* Hồng sữa / trung bình */
+            --pastel-pink: #FFDADA; /* Hồng nhạt (viền) */
+            --light-pink-bg: #FFECEC; /* Hồng nền nhạt */
+            --lightest-pink-bg: #FFF5F5; /* Hồng nền rất nhạt (body) */
+
+            /* Màu tối */
+            --secondary-color: #333; /* Đen/Xám đậm */
+            --text-color: #555;       /* Xám chữ */
             --white: #fff;
+
+            /* Khác */
+            --dark-overlay: rgba(0, 0, 0, 0.5);
             --font-family: 'Lato', sans-serif;
             --heading-font: 'Playfair Display', serif;
             --container-width: 1100px;
+            --header-height: 65px; /* Có thể không cần nếu không có header cố định */
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,9 +40,9 @@
             font-family: var(--font-family);
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--lightest-pink-bg);
+            background-color: var(--lightest-pink-bg); /* Nền giống trang gốc */
             font-size: 16px;
-            padding: 20px 0;
+            padding: 20px 0; /* Thêm chút padding cho body */
         }
 
         .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; }
@@ -46,13 +53,14 @@
             color: var(--secondary-color);
             line-height: 1.3;
         }
+        /* (Có thể thêm các style h2, h3, h4 cụ thể hơn nếu cần) */
 
         img { max-width: 100%; height: auto; display: block; }
         a { text-decoration: none; color: var(--primary-color); transition: color 0.3s ease; }
         a:hover { color: var(--hover-pink); }
         ul { list-style: none; }
 
-        /* --- Style Nút --- */
+        /* --- Style Nút (Lấy từ style.css gốc) --- */
         .btn {
             display: inline-block; padding: 12px 28px;
             background-color: var(--primary-color);
@@ -66,6 +74,7 @@
         .btn-primary { background-color: var(--secondary-color); color: var(--white); }
         .btn-primary:hover { background-color: #555; }
 
+        /* Style cho nút "Thêm vào giỏ" dạng outline */
         .btn-outline {
             background-color: transparent;
             border: 2px solid var(--primary-color);
@@ -78,12 +87,12 @@
             border-color: var(--primary-color);
         }
         .btn-outline i { margin-right: 8px; }
-        .btn-secondary {
+        .btn-secondary { /* Nút phụ, ví dụ Viết đánh giá */
              background-color: #eee;
              color: #555;
              border: 1px solid #ddd;
              padding: 8px 18px;
-             text-transform: none;
+             text-transform: none; /* Bỏ uppercase cho nút phụ */
         }
         .btn-secondary:hover {
             background-color: #ddd;
@@ -92,10 +101,10 @@
 
         /* ---------- PRODUCT DETAIL SECTION STYLES ---------- */
         .product-detail-section {
-            padding: 40px 0;
+            padding: 40px 0; /* Giảm padding chút nếu là trang riêng */
             background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-radius: 10px; /* Bo góc cho section */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08); /* Thêm bóng đổ nhẹ */
         }
 
         .product-layout {
@@ -114,12 +123,7 @@
             max-width: 100%;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-         .product-image-note {
-             font-size: 0.85em;
-             color: #888;
-             margin-top: 10px;
-             font-style: italic;
+            cursor: pointer;
         }
 
         .product-info-column {
@@ -131,31 +135,24 @@
             font-family: var(--heading-font);
             font-size: 2.2em;
             color: var(--secondary-color);
-            margin-bottom: 5px; /* Giảm margin dưới */
+            margin-bottom: 15px;
             line-height: 1.3;
-        }
-        .product-subtitle { /* Thêm style cho tên đầy đủ */
-             font-family: var(--font-family);
-             font-size: 1.1em;
-             color: var(--text-color);
-             margin-bottom: 15px;
-             font-weight: 300;
         }
 
         .product-rating-sold {
             display: flex;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 8px 15px;
+            flex-wrap: wrap; /* Cho phép xuống hàng nếu không đủ chỗ */
+            gap: 8px 15px; /* Thêm gap ngang */
             margin-bottom: 20px;
             color: var(--text-color);
             font-size: 0.95em;
         }
 
         .rating-stars {
-            color: #fadb14;
+            color: #fadb14; /* Màu vàng sao */
             font-size: 1.1em;
-            white-space: nowrap;
+            white-space: nowrap; /* Không xuống dòng các ngôi sao */
         }
 
         .review-count, .sold-count {
@@ -166,7 +163,7 @@
         .separator {
             color: #ccc;
             margin: 0 5px;
-            display: inline-block;
+            display: inline-block; /* Để không bị wrap cùng text */
         }
 
         .product-price {
@@ -240,7 +237,14 @@
         .product-actions-detail .btn-primary {
              padding: 12px 28px;
         }
-
+        .product-actions-detail .btn-primary {
+             padding: 12px 28px;
+             background-color: #A30000; /* Màu đỏ ruby đậm cho nút mua */
+             border: none;
+        }
+         .product-actions-detail .btn-primary:hover {
+             background-color: #7C0000; /* Đỏ đậm hơn khi hover */
+          }
         .product-reviews-section {
              margin-top: 30px;
              border-top: 1px solid var(--light-pink-bg);
@@ -252,7 +256,7 @@
              font-size: 1.3em;
              color: var(--secondary-color);
              margin-bottom: 15px;
-             border-bottom: none;
+             border-bottom: none; /* Bỏ border dưới ở đây */
              padding-bottom: 0;
         }
         .product-reviews-section p {
@@ -262,33 +266,135 @@
             margin-bottom: 15px;
         }
 
-        /* Responsive */
+
+        /* Responsive cho Product Detail */
         @media (max-width: 768px) {
-            .product-layout { flex-direction: column; gap: 30px; }
-            .product-image-column, .product-info-column { flex: 1 1 100%; }
-            .product-title { font-size: 1.8em; }
-            .current-price { font-size: 1.6em; }
+            .product-layout {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .product-image-column,
+            .product-info-column {
+                flex: 1 1 100%;
+            }
+            .product-title {
+                font-size: 1.8em;
+            }
+            .current-price {
+                font-size: 1.6em;
+            }
         }
          @media (max-width: 480px) {
-             .product-actions-detail { flex-direction: column; align-items: stretch; }
-             .product-actions-detail .btn { width: 100%; }
+              .product-actions-detail {
+                  flex-direction: column; /* Xếp chồng nút trên mobile nhỏ */
+                  align-items: stretch; /* Nút chiếm full width */
+               }
+               .product-actions-detail .btn {
+                   width: 100%;
+               }
+           }
+
+        /* Basic Header for Cart Count Demo (matches index.html structure) */
+        .site-header {
+            background-color: var(--medium-pink);
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 60px; /* Adjust as needed */
+        }
+        .cart-icon-area {
+            position: relative;
+             /* Style from index.html header-actions .header-cart */
+             display: flex;
+             align-items: center;
+        }
+         .header-cart a {
+             display: flex;
+             align-items: center;
+             color: var(--secondary-color); /* Link color */
+             transition: color 0.3s ease;
          }
+         .header-cart a:hover {
+             color: var(--primary-color);
+         }
+
+        .cart-count {
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 0.8em;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            display: none; /* Hide if 0 */
+            min-width: 20px; /* Ensure circle shape */
+            text-align: center;
+        }
+
+        .cart-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            animation: slideIn 0.3s ease forwards, slideOut 0.3s ease 2.7s forwards; /* Adjusted timing */
+            display: none; /* Ẩn mặc định */
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
 
     </style>
 </head>
 <body>
 
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="../index.html" class="logo"> <img src="../images/logokonen.png" alt="TNL Logo"> </a>
+            <div class="header-actions"> <div class="search-bar" style="display:none;">
+                      </div>
+                 <div class="header-cart cart-icon-area"> <a href="../Thanh toán/cart.html"> <i class="fas fa-shopping-cart fa-lg"></i>
+                           <span class="cart-count">0</span>
+                      </a>
+                      <div class="header-cart-items"></div>
+                 </div>
+                 <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false" style="display:none;">
+                      <i class="fas fa-bars"></i>
+                 </button>
+            </div>
+        </div>
+    </header>
+
+
     <section id="product-detail-vkh" class="product-detail-section">
         <div class="container">
             <div class="product-layout">
                 <div class="product-image-column">
-                     <img src="../images/14.jpg" alt="Vòng Tay VKH Vàng Hồng Kim Cương TNL" id="main-product-image-vkh">
-                    <p class="product-image-note">(Hình ảnh minh họa bộ sưu tập Vàng Hồng)</p>
+                    <img src="../images/vong-ket-hong.jpg.jpg" alt="Vòng Kết Hồng TNL High Jewelry" id="main-product-image-vkh"> 
                 </div>
 
                 <div class="product-info-column">
-                    <h2 class="product-title">Vòng Tay VKH</h2>
-                    <p class="product-subtitle">(Vòng Kết Hồng)</p> <div class="product-rating-sold">
+                    <h2 class="product-title">Vòng Kết Hồng</h2>
+
+                    <div class="product-rating-sold">
                         <span class="rating-stars">
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
@@ -296,64 +402,49 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
                             </span>
-                        <span class="review-count">(90 đánh giá)</span>
-                         <span class="separator" aria-hidden="true">|</span>
-                        <span class="sold-count">Đã bán: 220+</span>
+                        <span class="review-count">(15 đánh giá)</span>
+                           <span class="separator" aria-hidden="true">|</span>
+                        <span class="sold-count">Đã bán: 50+</span>
                          </div>
 
                     <div class="product-price">
-                         <span class="current-price">9.800.000₫</span>
-                        </div>
+                           <span class="current-price">45.000.000₫</span>
+                         </div>
 
                     <p class="product-intro">
-                        Thể hiện cá tính năng động cùng vòng tay 'VKH' (Vòng Kết Hồng). Thiết kế đa sợi vàng hồng 14k hiện đại, kết nối bởi hai đốt chạm kim cương Moissanite tinh xảo, tạo nên sự uyển chuyển và lấp lánh trên cổ tay. VKH - biểu tượng cho sự gắn kết và phong cách không ngừng chuyển động.
+                        Vòng Kết Hồng - Biểu tượng của tình yêu vĩnh cửu và sự gắn kết bền chặt. Thiết kế tinh xảo với những viên kim cương lấp lánh và đá Sapphire Hồng tự nhiên rực rỡ, được chế tác trên nền vàng hồng 18k quý phái. Một tuyệt tác trang sức mang vẻ đẹp dịu dàng, hiện đại, tôn vinh sự nữ tính và sang trọng cho người sở hữu.
                     </p>
 
                     <div class="product-specs">
                         <h4>Cấu tạo & Chi tiết</h4>
                         <ul>
-                             <li>Chất liệu: Vàng hồng 14k</li>
-                            <li>Đá đính: Đá Moissanite cao cấp (hoặc Kim cương tự nhiên)</li>
-                            <li>Giác cắt đá: Tròn (Round Brilliant)</li>
-                            <li>Tổng trọng lượng đá (ước lượng): 0.20 Carat</li>
-                            <li>Kiểu dáng: Vòng tay bangle đa sợi, khóa gài an toàn</li>
-                            <li>Size vòng: Freesize (phù hợp cổ tay 15-17cm) hoặc theo yêu cầu</li>
-                            <li>Xuất xứ: Thiết kế & chế tác bởi TNL Jewelry</li>
-                            <li>Bảo hành: Trọn đời chất liệu vàng, 12 tháng cho đá</li>
+                             <li>Chất liệu: Vàng hồng 18k</li>
+                            <li>Đá chính: Kim cương tự nhiên</li>
+                            <li>Đá phụ: Sapphire Hồng tự nhiên</li>
+                            <li>Tổng trọng lượng Kim cương (ước lượng): ~3 Carats</li>
+                            <li>Tổng trọng lượng Sapphire Hồng (ước lượng): ~8 Carats</li>
+                            <li>Chu vi cổ tay: ~16-18cm (Có thể tùy chỉnh kích thước)</li>
+                            <li>Khóa cài: Khóa cài ẩn an toàn</li>
+                            <li>Giám định: Đi kèm chứng thư GIA/IGI cho các viên đá chủ</li>
+                            <li>Mã sản phẩm: TNL-VKH01</li>
                         </ul>
                     </div>
 
                     <div class="product-actions-detail">
-                        <button class="btn btn-outline" onclick="thêmVàoGiỏ({
-                            id: 'VKH-01',
-                            name: 'VKH (Vòng Kết Hồng)',
-                            price: 9800000,
-                            image: '../images/14.jpg'
-                        })">
-                            <i class="fas fa-shopping-cart"></i> Thêm vào giỏ
-                        </button>
-                        <a href="../Thanh toán/TRANG THANH TOÁN.html?sanpham=VKH-01&ten=VKH+(Vòng+Kết+Hồng)&gia=9800000&hinh=../images/14.jpg" 
-                           class="btn btn-primary">
-                            Mua Ngay
-                        </a>
+                         <button type="button" class="btn btn-outline add-to-cart-btn">
+                             <i class="fas fa-shopping-cart"></i> Thêm vào giỏ
+                         </button>
+                         <button type="button" class="btn btn-primary buy-now-btn">
+                             Mua Ngay
+                         </button>
                     </div>
 
                     <div class="product-reviews-section">
-                         <h4>Đánh giá sản phẩm</h4>
-                         <p>Cảm nhận của khách hàng về Vòng Tay VKH.</p>
-                         <div id="product-reviews-placeholder-vkh">
-                              <div class="review-item" style="border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 10px;">
-                                 <div class="review-rating">★★★★★</div>
-                                 <div class="review-author"><strong>Phương Linh</strong> - <span style="font-size: 0.8em; color: #888;">18/03/2025</span></div>
-                                 <p class="review-text" style="margin-top: 5px; font-style: normal;">Vòng tay thiết kế rất hay, đeo lên tay nhìn sang và hiện đại. Đá lấp lánh đẹp lắm.</p>
-                             </div>
-                              <div class="review-item" style="border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 10px;">
-                                 <div class="review-rating">★★★★★</div>
-                                 <div class="review-author"><strong>Thảo Nguyên</strong> - <span style="font-size: 0.8em; color: #888;">11/03/2025</span></div>
-                                 <p class="review-text" style="margin-top: 5px; font-style: normal;">Mình thích kiểu đa sợi này, nhìn không bị đơn điệu. Vàng hồng màu xinh, hợp da.</p>
-                             </div>
-                         </div>
-                         <a href="#leave-review" class="btn btn-secondary">Viết đánh giá của bạn</a>
+                           <h4>Đánh giá sản phẩm</h4>
+                           <p>Hiện chưa có đánh giá nào. Hãy là người đầu tiên đánh giá sản phẩm này!</p>
+                           <div id="product-reviews-placeholder-vkh">
+                                </div>
+                           <button class="btn btn-secondary">Viết đánh giá</button>
                     </div>
 
                 </div>
@@ -361,42 +452,59 @@
         </div>
     </section>
 
+    <div id="cart-notification" class="cart-notification"></div>
+
+    <script src="../Thanh toán/cart.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // ========== PRODUCT DETAIL PAGE LOGIC (Vòng Tay VKH) ==========
+            const addToCartBtn = document.querySelector('.add-to-cart-btn');
+            const buyNowBtn = document.querySelector('.buy-now-btn');
+            const cartNotification = document.getElementById('cart-notification');
 
-            // ★★★ Đảm bảo ID các nút này là duy nhất ★★★
-            const addToCartButtonVKH = document.getElementById('add-to-cart-vkh');
-            const buyNowButtonVKH = document.getElementById('buy-now-vkh');
+            const productData = {
+                id: 'TNL-VKH01',
+                name: 'Vòng Kết Hồng',
+                price: 45000000,
+                image: '../images/vong-ket-hong.jpg.jpg'
+            };
 
-            // --- Xử lý nút "Thêm vào giỏ" ---
-            if (addToCartButtonVKH) {
-                addToCartButtonVKH.addEventListener('click', () => {
-                    const productId = 'TNL-VKH01'; // ID sản phẩm ví dụ
-                    const productName = 'Vòng Tay VKH (Vòng Kết Hồng)';
-                    const quantity = 1;
-
-                    console.log(`Đã thêm vào giỏ: ${quantity} x ${productName} (ID: ${productId})`);
-                    // ★★★ Logic thêm vào giỏ hàng thực tế ★★★
-                    alert(`${productName} đã được thêm vào giỏ hàng!`);
-                });
+            function showNotification(message) {
+                cartNotification.textContent = message;
+                cartNotification.style.display = 'block';
+                cartNotification.style.animation = 'none';
+                void cartNotification.offsetWidth; // Trigger reflow
+                cartNotification.style.animation = 'slideIn 0.3s ease forwards, slideOut 0.3s ease 2.7s forwards';
             }
 
-            // --- Xử lý nút "Mua Ngay" ---
-            if (buyNowButtonVKH) {
-                buyNowButtonVKH.addEventListener('click', () => {
-                    const productId = 'TNL-VKH01';
-                    const productName = 'Vòng Tay VKH (Vòng Kết Hồng)';
-                    const quantity = 1;
-
-                    console.log(`Mua ngay: ${quantity} x ${productName} (ID: ${productId})`);
-                    // ★★★ Logic chuyển đến trang thanh toán hoặc xử lý mua ngay thực tế ★★★
-                    alert(`Chuẩn bị mua ngay ${productName}! (Chuyển hướng đến trang thanh toán...)`);
-                    // window.location.href = '/checkout?productId=' + productId + '&quantity=' + quantity;
-                });
+            function addToCart(buyNow = false) {
+                let cart = JSON.parse(localStorage.getItem('tnl-cart')) || [];
+                const existingProduct = cart.find(item => item.id === productData.id);
+                
+                if (existingProduct) {
+                    existingProduct.quantity += 1;
+                } else {
+                    cart.push({...productData, quantity: 1});
+                }
+                
+                localStorage.setItem('tnl-cart', JSON.stringify(cart));
+                
+                if (buyNow) {
+                    window.location.href = '../Thanh toán/cart.html';
+                } else {
+                    showNotification('Đã thêm vào giỏ hàng!');
+                    if (typeof TNLCart !== 'undefined') TNLCart.updateCartDisplay();
+                }
             }
 
-        }); // End DOMContentLoaded
+            if (addToCartBtn) {
+                addToCartBtn.addEventListener('click', () => addToCart(false));
+            }
+
+            if (buyNowBtn) {
+                buyNowBtn.addEventListener('click', () => addToCart(true));
+            }
+        });
     </script>
 
 </body>

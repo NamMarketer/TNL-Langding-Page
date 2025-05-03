@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -14,35 +15,51 @@
         <div class="container header-container">
             <nav class="main-nav main-nav-left" id="main-nav-left">
                 <ul>
-                    <li><a href="#product-showcase">Sản Phẩm</a></li>
-                    <li><a href="#benefits">Lợi Ích</a></li>
+                    <li><a href="#product-showcase">Sản phẩm</a></li>
+                    <li><a href="#benefits">Lợi ích</a></li>
                 </ul>
             </nav>
 
             <div class="logo">
                 <a href="#hero">
-                    <img src="images/9-Photoroom.png" alt="Logo Thương Hiệu TNL" onerror="this.onerror=null; this.src='https://placehold.co/150x75/FFECEC/333?text=TNL+Logo';">
+                    <img src="images/logokonen.png" alt="Logo Thương Hiệu TNL">
                 </a>
             </div>
 
             <nav class="main-nav main-nav-right" id="main-nav-right">
                 <ul>
-                    <li><a href="#testimonials">Phản Hồi</a></li>
-                    <li><a href="#discount-offer">Ưu Đãi</a></li>
-                    <li><a href="#footer">Liên Hệ</a></li> </ul>
+                    <li><a href="#testimonials">Phản hồi</a></li>
+                    <li><a href="#discount-offer">Ưu đãi</a></li>
+                    <li><a href="#footer">Liên hệ</a></li> </ul>
             </nav>
 
             <div class="header-actions">
-                <div class="search-bar">
-                    <input type="text" placeholder="Tìm kiếm...">
-                    <button><i class="fas fa-search"></i></button>
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Tìm kiếm sản phẩm...">
+                        <button id="search-button"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div id="search-results" class="search-results"></div>
                 </div>
                 <div class="header-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">0</span>
+                    <a href="Thanh toán/cart.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
                     <div class="header-cart-items">
                         <!-- Cart items will be inserted here by JavaScript -->
                     </div>
+                </div>
+                <div class="header-account">
+                    <div class="account-icon">
+                        <i class="fas fa-user"></i> </div>
+                    <div class="account-dropdown">
+                    <ul>
+                       <li><a href="account/register.html" class="account-link">Đăng ký </a></li>
+                     <li> <a href="account/login.html" class="account-link">Đăng nhập </a></li>
+                    </ul>
+                    </div>
+                </div>
                 </div>
                 <button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false">
                     <i class="fas fa-bars"></i>
@@ -80,7 +97,7 @@
                     <span class="cart-modal-total">0₫</span>
                 </div>
                 <button class="cart-modal-checkout" onclick="proceedToCheckout()">
-                    Thanh toán
+                    Chuyển đến giỏ hàng chính
                 </button>
             </div>
         </div>
@@ -96,8 +113,8 @@
             </div>
 
              <div class="hero-video-right">
-                <video autoplay loop muted playsinline poster="https://placehold.co/800x500/FFECEC/333?text=TNL+Video+Poster">
-                    <source src="images/Backround-TNJ.mp4" type="video/mp4">
+                <video autoplay loop muted playsinline poster="">
+                    <source src="images/Backround-Tnj.mp4" type="video/mp4">
                     Trình duyệt của bạn không hỗ trợ thẻ video.
                 </video>
             </div>
@@ -114,39 +131,50 @@
                     <div class="slider">
                         <div class="product-item"
                         data-product-name="Nhẫn Ánh Sao Hội Tụ"
-                        data-product-image="images/23.jpg"
+                        data-product-image="../images/nhan-anh-sao-hoi-tu.jpg"
                         data-product-price="1500000"> <h3>Nhẫn Ánh Sao Hội Tụ</h3>
-                       <img src="images/23.jpg" alt="Nhẫn Ánh Sao Hội Tụ" onerror="this.onerror=null; this.src='https://placehold.co/400x280/FFC7C7/333?text=Nhẫn+TNL';">
+                       <img src="images/nhan-anh-sao-hoi-tu.jpg">
                        <div class="product-actions">
                            <a href="Bài viết liên quan/Nhẫn Ánh Sao Hội Tụ.html" class="btn">Xem Chi Tiết</a>
                            <button class="btn btn-buy" onclick="muaNgay({
                                id: 'NAST-01',
                                name: 'Nhẫn Ánh Sao Hội Tụ',
                                price: 6500000,
-                               image: 'images/23.jpg'
+                               image: 'images/nhan-anh-sao-hoi-tu.jpg'
                            })">Mua Ngay</button>
                        </div>
                    </div>
                    
                    <div class="product-item"
                         data-product-name="Dây chuyền Nữ hoàng Ruby"
-                        data-product-image="images/24.jpg"
+                        data-product-image="../images/day-chuyen-nu-hoang-ruby.jpg.jpg"
                         data-product-price="2800000"> <h3>Dây chuyền Nữ hoàng Ruby</h3>
-                       <img src="images/24.jpg" alt="Dây chuyền Nữ hoàng Ruby" onerror="this.onerror=null; this.src='https://placehold.co/400x280/FFC7C7/333?text=Dây+Chuyền+TNL';">
+                       <img src="images/day-chuyen-nu-hoang-ruby.jpg.jpg" alt="Dây chuyền Nữ hoàng Ruby">
                        <div class="product-actions">
-                           <a href="Bài viết liên quan/Nữ hoàng Ruby.html" class="btn">Xem Chi Tiết</a>
-                           <button class="btn btn-buy">Mua Ngay</button>
+                           <a href="Bài viết liên quan/Dây chuyền Nữ Hoàng Ruby.html" class="btn">Xem Chi Tiết</a>
+                           <button class="btn btn-buy" onclick="muaNgay({
+                               id: 'DCNHR-01',
+                               name: 'Dây chuyền Nữ hoàng Ruby',
+                               price: 2800000,
+                               image: '../images/day-chuyen-nu-hoang-ruby.jpg.jpg'
+                           })">Mua Ngay</button>
                        </div>
                    </div>
                    
                    <div class="product-item"
                         data-product-name="Vòng Tay Tâm Điểm Hồng"
-                        data-product-image="images/26.jpg"
-                        data-product-price="1950000"> <h3>Vòng Tay Tâm Điểm Hồng</h3>
-                       <img src="images/26.jpg" alt="Vòng Tay Tâm Điểm Hồng" onerror="this.onerror=null; this.src='https://placehold.co/400x280/FFC7C7/333?text=Vòng+Tay+TNL';">
+                        data-product-image="../images/vong-tay-tam-diem-hong.jpg.jpg"
+                        data-product-price="1950000"> 
+                        <h3>Vòng Tay Tâm Điểm Hồng</h3>
+                       <img src="../images/vong-tay-tam-diem-hong.jpg.jpg" alt="Vòng Tay Tâm Điểm Hồng">
                        <div class="product-actions">
                            <a href="Bài viết liên quan/Vòng Tay Tâm Điểm Hồng.html" class="btn">Xem Chi Tiết</a>
-                           <button class="btn btn-buy">Mua Ngay</button>
+                           <button class="btn btn-buy" onclick="muaNgay({
+                               id: 'VTTDH-01',
+                               name: 'Vòng Tay Tâm Điểm Hồng',
+                               price: 1950000,
+                               image: '../images/vong-tay-tam-diem-hong.jpg.jpg'
+                           })">Mua Ngay</button>
                        </div>
                    </div>
                         </div>
@@ -156,19 +184,43 @@
                 <h3>Khám Phá Thêm</h3>
                 <div class="other-products-list">
                     <div class="other-product-item">
-                         <img src="images/10.jpg" alt="Dây chuyền hồng ngọc" onerror="this.onerror=null; this.src='https://placehold.co/200x180/FFDADA/333?text=SP+Khác+1';">
+                         <img src="images/day-chuyen-hong-ngoc.jpg" alt="Dây chuyền hồng ngọc" onerror="this.onerror=null; this.src='https://placehold.co/200x180/FFDADA/333?text=SP+Khác+1';">
                         <h4>Dây chuyền hồng ngọc</h4>
-                        <a href="Bài viết liên quan/Dây chuyển hồng ngọc.html" class="btn btn-small">Xem Ngay</a>
+                        <div class="product-actions">
+                            <a href="Bài viết liên quan/Dây chuyển hồng ngọc.html" class="btn">Xem Chi Tiết</a>
+                            <button class="btn btn-buy" onclick="muaNgay({
+                                id: 'DCHN-01',
+                                name: 'Dây chuyền hồng ngọc',
+                                price: 2500000,
+                                image: '../images/day-chuyen-hong-ngoc.jpg'
+                            })">Mua Ngay</button>
+                        </div>
                     </div>
                     <div class="other-product-item">
-                         <img src="images/16.jpg" alt="Nhẫn Ánh Sao Hội Tụ Khác" onerror="this.onerror=null; this.src='https://placehold.co/200x180/FFDADA/333?text=SP+Khác+2';">
-                        <h4>Nhẫn Ánh Sao Hội Tụ</h4>
-                        <a href="Bài viết liên quan/Nhẫn Ánh Sao Hội Tụ.html" class="btn btn-small">Xem Ngay</a>
+                         <img src="images/nhan-anh-sao.jpg.jpg" alt="Nhẫn Ánh Sao" onerror="this.onerror=null; this.src='https://placehold.co/200x180/FFDADA/333?text=SP+Khác+2';">
+                        <h4>Nhẫn Ánh Sao </h4>
+                        <div class="product-actions">
+                            <a href="Bài viết liên quan/Nhẫn.html" class="btn">Xem Chi Tiết</a>
+                            <button class="btn btn-buy" onclick="muaNgay({
+                                id: 'NAS-01', 
+                                name: 'Nhẫn Ánh Sao',
+                                price: 5500000,
+                                image: '../images/nhan-anh-sao.jpg.jpg'
+                            })">Mua Ngay</button>
+                        </div>
                     </div>
                     <div class="other-product-item">
-                         <img src="images/14.jpg" alt="VKH (Vòng Kết Hồng)" onerror="this.onerror=null; this.src='https://placehold.co/200x180/FFDADA/333?text=SP+Khác+3';">
-                        <h4>VKH (Vòng Kết Hồng)</h4>
-                        <a href="Bài viết liên quan/VKH (Vòng Kết Hồng).html" class="btn btn-small">Xem Ngay</a>
+                         <img src="images/vong-ket-hong.jpg.jpg" alt="VKH (Vòng Kết Hồng)" onerror="this.onerror=null; this.src='https://placehold.co/200x180/FFDADA/333?text=SP+Khác+3';">
+                        <h4>Vòng Kết Hồng </h4>
+                        <div class="product-actions">
+                            <a href="Bài viết liên quan/VKH (Vòng Kết Hồng).html" class="btn">Xem Chi Tiết</a>
+                            <button class="btn btn-buy" onclick="muaNgay({
+                                id: 'VKH-01',
+                                name: 'Vòng Kết Hồng',
+                                price: 1800000,
+                                image: '../images/vong-ket-hong.jpg.jpg'
+                            })">Mua Ngay</button>
+                        </div>
                     </div>
                     </div>
             </div>
@@ -298,8 +350,26 @@
                 <input type="tel" id="phone" name="phone" required><br><br>
                 <button type="submit">Nhận tư vấn ngay</button>
             </form>
-              
-              <p class="form-note">Chỉ còn <strong><span id="hours-left">12</span> giờ</strong> nữa!</p>
+            <div class="confirmation-dialog-overlay"></div>
+            <div class="confirmation-dialog">
+                <button class="close-confirmation" aria-label="Đóng">&times;</button>
+                <div class="confirmation-dialog-header">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Đăng Ký Thành Công!</h3>
+                </div>
+                <div class="confirmation-dialog-content">
+                    <p>Cảm ơn bạn đã đăng ký nhận thông tin từ TNL!</p>
+                    <div class="discount-code-box">
+                        <p>Mã giảm giá của bạn:</p>
+                        <div class="discount-code" id="discount-code">LOADING...</div>
+                        <button class="copy-code-btn">
+                            <i class="fas fa-copy"></i>Sao chép mã
+                        </button>
+                    </div>
+                    <p>Mã giảm giá đã được gửi tới email của bạn.</p>
+                    <p>Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất!</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -346,7 +416,7 @@
                 <h4>Phương Thức Thanh Toán</h4>
                  <img src="images/visa.png" alt="Visa" title="Visa" onerror="this.onerror=null; this.src='https://placehold.co/50x30/eee/333?text=Visa';">
                  <img src="images/Mater card.jpg" alt="Mastercard" title="Mastercard" onerror="this.onerror=null; this.src='https://placehold.co/50x30/eee/333?text=MC';">
-                 <img src="images/Momo.png" alt="MoMo" title="MoMo" onerror="this.onerror=null; this.src='https://placehold.co/50x30/eee/333?text=Momo';">
+                 <img src="images/momo.png" alt="MoMo" title="MoMo" onerror="this.onerror=null; this.src='https://placehold.co/50x30/eee/333?text=Momo';">
                  <p style="margin-top: 5px;">An toàn, bảo mật</p>
             </div>
             <div class="footer-social">
@@ -367,11 +437,12 @@
         </button>
         <div class="chat-window" id="chat-window">
             <div class="chat-header">
-                Hỗ trợ trực tuyến
+                <span class="chat-header-text">  Tư Vấn Khách Hàng</span>
                 <button id="close-chat" aria-label="Đóng chat"><i class="fas fa-times"></i></button>
             </div>
             <div class="chat-body">
                  <p>Chào bạn! TNL có thể giúp gì cho bạn?</p>
+                 <!-- FAQ list will be inserted here by JavaScript -->
             </div>
             <div class="chat-input">
                 <input type="text" placeholder="Nhập tin nhắn...">
@@ -379,7 +450,16 @@
             </div>
         </div>
     </div>
-
+    <div id="popup-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.5); z-index:1001;">
+        <div id="popup-container" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); background-color:#fff; border-radius:10px; box-shadow:0 0 20px rgba(0,0,0,0.3); overflow:hidden; max-width:90%; max-height:90%; display:flex; flex-direction:column; align-items:center;">
+            <img src="images/popup.png" alt="Quảng Cáo Đặc Biệt" style="display:block; width:100%; height:auto;">
+            <button id="close-popup-button" style="position:absolute; top:10px; right:10px; background:none; border:none; font-size:1.5em; color:#555; cursor:pointer; transition: color 0.3s ease;">&times;</button>
+            <div style="padding:20px; text-align:center;">
+                <p style="color:#333; margin-bottom:15px; font-size:1.1em;">Đừng bỏ lỡ ưu đãi đặc biệt này!</p>
+                <a href="#discount-offer" class="btn btn-primary btn-large">Đăng Ký Ngay</a>
+            </div>
+        </div>
+    </div>
     <script src="script.js" defer></script>
 </body>
 </html>

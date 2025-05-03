@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Ký Tài Khoản</title>
+    <link rel="stylesheet" href="../Style.css"> <link rel="stylesheet" href="register.css"> 
+<style>
+    
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-wrapper">
+            <h1>Đăng Ký Tài Khoản</h1>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="reg-name">Họ và Tên:</label>
+                    <input type="text" id="reg-name" name="reg-name" required>
+                    <div class="error-message" id="nameError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="reg-email">Email:</label>
+                    <input type="email" id="reg-email" name="reg-email" required>
+                    <div class="error-message" id="emailError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="reg-password">Mật Khẩu:</label>
+                    <input type="password" id="reg-password" name="reg-password" required>
+                    <div class="error-message" id="passwordError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="reg-confirm-password">Xác Nhận Mật Khẩu:</label>
+                    <input type="password" id="reg-confirm-password" name="reg-confirm-password" required>
+                    <div class="error-message" id="confirmPasswordError"></div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Đăng Ký</button>
+                <div class="form-footer">
+                    Đã có tài khoản? <a href="/dang-nhap">Đăng Nhập</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script> <script src="register.js"></script> </body>
+</html>

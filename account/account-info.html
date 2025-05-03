@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông Tin Tài Khoản</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="account-info.css">
+    <style>
+        /* Стиль cho trang thông tin tài khoản */
+        .page-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        
+        .account-details {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .account-details .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .account-details label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        .account-details input[type="text"],
+        .account-details input[type="email"],
+        .account-details input[type="tel"],
+        .account-details textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        
+        .account-details input:focus,
+        .account-details textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 5px rgba(var(--primary-color-rgb), 0.5);
+        }
+        
+        .account-details textarea {
+            min-height: 100px;
+        }
+        
+        .account-details button[type="submit"] {
+            padding: 12px 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .account-details button[type="submit"]:hover {
+            background-color: var(--hover-pink);
+        }
+        
+        .account-details .message {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .account-details .message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .account-details .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="page-title">Thông Tin Tài Khoản</h1>
+        <div class="account-details">
+            <form id="accountInfoForm">
+                <div class="form-group">
+                    <label for="name">Họ và Tên:</label>
+                    <input type="text" id="name" name="name" value="[Tên người dùng]" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="[Email người dùng]" required readonly>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số Điện Thoại:</label>
+                    <input type="tel" id="phone" name="phone" value="[Số điện thoại người dùng]">
+                </div>
+                <div class="form-group">
+                    <label for="address">Địa Chỉ:</label>
+                    <textarea id="address" name="address">[Địa chỉ người dùng]</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-large">Cập Nhật Thông Tin</button>
+                <div class="message" id="updateMessage" style="display:none;"></div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const accountInfoForm = document.getElementById('accountInfoForm');
+    const updateMessage = document.getElementById('updateMessage');
+
+    accountInfoForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Ngăn chặn gửi form mặc định
+        updateAccountInfo();
+    });
+
+    // Hàm giả định để gửi dữ liệu cập nhật tài khoản lên backend
+    async function updateAccountInfo() {
+        const formData = new FormData(accountInfoForm);
+        const data = Object.fromEntries(formData.entries());
+
+        // Thay thế đoạn này bằng API call thực tế của bạn
+        try {
+            // Mô phỏng API call thành công
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            updateMessage.textContent = 'Thông tin tài khoản đã được cập nhật thành công.';
+            updateMessage.className = 'message success';
+            updateMessage.style.display = 'block';
+            setTimeout(() => {
+                updateMessage.style.display = 'none';
+            }, 3000);
+        } catch (error) {
+            console.error('Lỗi cập nhật tài khoản:', error);
+            updateMessage.textContent = 'Đã có lỗi xảy ra khi cập nhật thông tin.';
+            updateMessage.className = 'message error';
+            updateMessage.style.display = 'block';
+            setTimeout(() => {
+                updateMessage.style.display = 'none';
+            }, 3000);
+        }
+    }
+});
+    </script>
+</body>
+</html>

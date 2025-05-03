@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch Sử Mua Hàng</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="order-history.css">
+    <style>
+ 
+        /* Стиль cho trang lịch sử mua hàng */
+        .page-title {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        
+        .order-list {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+        }
+        
+        .order-item {
+            border-bottom: 1px solid var(--pastel-pink);
+            padding: 15px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr auto; /* Cột cho ID, ngày, tổng tiền, trạng thái */
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .order-item:last-child {
+            border-bottom: none;
+        }
+        
+        .order-header {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr auto;
+            gap: 10px;
+        }
+        
+        .order-details-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .order-details-link:hover {
+            color: var(--hover-pink);
+        }
+        
+        .order-status {
+            font-weight: bold;
+            color: green; /* Màu mặc định cho trạng thái đã hoàn thành */
+        }
+        
+        .order-status.pending {
+            color: orange;
+        }
+        
+        .order-status.cancelled {
+            color: red;
+        }
+        
+        /* Thêm responsive cho màn hình nhỏ hơn */
+        @media (max-width: 768px) {
+            .order-item, .order-header {
+                grid-template-columns: 1fr auto; /* Xếp chồng các cột */
+            }
+            .order-header > div:not(:last-child),
+            .order-item > div:not(:last-child) {
+                margin-bottom: 5px;
+            }
+            .order-item > .order-details-link {
+                grid-column: 1 / -1; /* Chiếm toàn bộ chiều rộng */
+                text-align: right;
+            }
+        }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="page-title">Lịch Sử Mua Hàng</h1>
+        <div class="order-list">
+            </div>
+    </div>
+    <script >
+    document.addEventListener('DOMContentLoaded', function() {
+    const orderListContainer = document.querySelector('.order-list');
+
+    // Hàm giả định để lấy dữ liệu lịch sử mua hàng từ backend
+    function fetchOrderHistory() {
+        // Thay thế đoạn này bằng API call thực tế của bạn
+        return new Promise(resolve => {
+            setTimeout(() => {
+                const orders = [
+                    { id: 1, date: '2025-05-01', total: 150000, status: 'completed', detailsUrl: '/don-hang/1' },
+                    { id: 2, date: '2025-04-25', total: 85000, status: 'pending', detailsUrl: '/don-hang/2' },
+                    { id: 3, date: '2025-04-10', total: 220000, status: 'completed', detailsUrl: '/don-hang/3' },
+                    { id: 4, date: '2025-03-15', total: 50000, status: 'cancelled', detailsUrl: '/don-hang/4' },
+                ];
+                resolve(orders);
+            }, 500); // Mô phỏng độ trễ API
+        });
+    }
+
+    // Hàm để hiển thị lịch sử mua hàng lên trang
+    async function displayOrderHistory() {
+        const orders = await fetchOrderHistory();
+
+        if (orders && orders.length > 0) {
+            const header = document.createElement('div');
+            header.classList.add('order-header');
+            header.innerHTML = `
+                <div>Mã Đơn Hàng</div>
+                <div>Ngày Mua</div>
+                <div>Tổng Tiền</div>
+                <div>Trạng Thái</div>
+            `;
+            orderListContainer.appendChild(header);
+
+            orders.forEach(order => {
+                const orderItem = document.createElement('div');
+                orderItem.classList.add('order-item');
+                orderItem.innerHTML = `
+                    <div>${order.id}</div>
+                    <div>${order.date}</div>
+                    <div>${formatCurrency(order.total)}</div>
+                    <div class="order-status ${order.status}">${formatOrderStatus(order.status)}</div>
+                    <div><a href="${order.detailsUrl}" class="order-details-link">Xem Chi Tiết</a></div>
+                `;
+                orderListContainer.appendChild(orderItem);
+            });
+        } else {
+            orderListContainer.innerHTML = '<p>Không có đơn hàng nào.</p>';
+        }
+    }
+
+    // Hàm định dạng tiền tệ (ví dụ: VND)
+    function formatCurrency(amount) {
+        return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
+    }
+
+    // Hàm định dạng trạng thái đơn hàng
+    function formatOrderStatus(status) {
+        switch (status) {
+            case 'pending':
+                return 'Đang Xử Lý';
+            case 'completed':
+                return 'Đã Hoàn Thành';
+            case 'cancelled':
+                return 'Đã Hủy';
+            default:
+                return status;
+        }
+    }
+
+    displayOrderHistory();
+});
+    </script>
+    <script src="script.js"></script>
+    
+</body>
+</html>
